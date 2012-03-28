@@ -512,7 +512,7 @@
 <XPD:ATTR name="LineColor" type="string">clMaroon</XPD:ATTR>
 <XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
 <XPD:ATTR name="Left" type="integer">552</XPD:ATTR>
-<XPD:ATTR name="Top" type="integer">16</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">20</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">125</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">69</XPD:ATTR>
 <XPD:REF name="Model">NMeBeIAXgEuEaxPvmCiLWQAA</XPD:REF>
@@ -550,35 +550,9 @@
 <XPD:REF name="Views[0]">yJk/HIZyikmZq/3f4Lsa3wAA</XPD:REF>
 <XPD:REF name="Views[1]">JbRiiz7680KHELgWznv9rAAA</XPD:REF>
 <XPD:REF name="Views[2]">51yD2EcZ7kSUR+FDd5v/QgAA</XPD:REF>
-<XPD:ATTR name="#Operations" type="integer">5</XPD:ATTR>
-<XPD:OBJ name="Operations[0]" type="UMLOperation" guid="Q8DmYgRmDkiD9c5/ZUtkHQAA">
-<XPD:ATTR name="Name" type="string">Operation1</XPD:ATTR>
-<XPD:REF name="Owner">xqI1u3MKC0KWXKidfLg+3AAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Operations[1]" type="UMLOperation" guid="1Ln58wGxDE+0gLsPvtwNTQAA">
-<XPD:ATTR name="Name" type="string">Operation2</XPD:ATTR>
-<XPD:REF name="Owner">xqI1u3MKC0KWXKidfLg+3AAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Operations[2]" type="UMLOperation" guid="sngEHvlBwUWlQuLcu2RibQAA">
-<XPD:ATTR name="Name" type="string">Operation3</XPD:ATTR>
-<XPD:REF name="Owner">xqI1u3MKC0KWXKidfLg+3AAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Operations[3]" type="UMLOperation" guid="c4qtxlr0Cki0ssZzd6/3BQAA">
-<XPD:ATTR name="Name" type="string">Operation4</XPD:ATTR>
-<XPD:REF name="Owner">xqI1u3MKC0KWXKidfLg+3AAA</XPD:REF>
-</XPD:OBJ>
-<XPD:OBJ name="Operations[4]" type="UMLOperation" guid="2M3O7PhB20aiQZTK/O9rbQAA">
-<XPD:ATTR name="Name" type="string">Operation5</XPD:ATTR>
-<XPD:REF name="Owner">xqI1u3MKC0KWXKidfLg+3AAA</XPD:REF>
-</XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Associations[0]">3sfR1D/XIE6Hy7XYzFFPOAAA</XPD:REF>
 <XPD:REF name="Associations[1]">SWKnz5dB8EiYIWc3A5wirwAA</XPD:REF>
-<XPD:ATTR name="#Attributes" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Attributes[0]" type="UMLAttribute" guid="Eb68N5peAkC/dJORifb7BAAA">
-<XPD:ATTR name="Name" type="string">Attribute1</XPD:ATTR>
-<XPD:REF name="Owner">xqI1u3MKC0KWXKidfLg+3AAA</XPD:REF>
-</XPD:OBJ>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedElements[1]" type="UMLClass" guid="NMeBeIAXgEuEaxPvmCiLWQAA">
 <XPD:ATTR name="Name" type="string">Bottoni</XPD:ATTR>
@@ -592,12 +566,6 @@
 <XPD:OBJ name="Operations[0]" type="UMLOperation" guid="4WdAAlmEDECzbHB4m/hriQAA">
 <XPD:ATTR name="Name" type="string">getNome</XPD:ATTR>
 <XPD:REF name="Owner">NMeBeIAXgEuEaxPvmCiLWQAA</XPD:REF>
-<XPD:ATTR name="#Parameters" type="integer">1</XPD:ATTR>
-<XPD:OBJ name="Parameters[0]" type="UMLParameter" guid="kuR1+ZQMUEKtT1vyWVQUSwAA">
-<XPD:ATTR name="DirectionKind" type="UMLParameterDirectionKind">pdkReturn</XPD:ATTR>
-<XPD:ATTR name="TypeExpression" type="string">String</XPD:ATTR>
-<XPD:REF name="BehavioralFeature">4WdAAlmEDECzbHB4m/hriQAA</XPD:REF>
-</XPD:OBJ>
 </XPD:OBJ>
 <XPD:ATTR name="#Associations" type="integer">2</XPD:ATTR>
 <XPD:REF name="Associations[0]">+ZgbDtUVWU+KsQj9fy/uYwAA</XPD:REF>
