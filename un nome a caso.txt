@@ -1,0 +1,16 @@
+mod connection
+
+jid = [ node "@" ] domain [ "/" resource ]
+domain = fqdn / address-literal
+fqdn = (sub-domain 1*("." sub-domain))
+sub-domain = (internationalized domain label)
+address-literal = IPv4address / IPv6address
+
+<user@host/resource> standard dove resource (e.g., a specific client)
+dove host è l'ip a cui mi sto connettendo
+user è il mio account
+
+
+
+
+
