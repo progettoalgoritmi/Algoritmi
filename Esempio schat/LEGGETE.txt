@@ -1,0 +1,2 @@
+Ho preso una classe default di netbeans quindi c'è un sacco di roba inutile, perdono
+Ad ogni modo è uno schizzo di quello che potrebbe essere il client, quando ci vediamo vi spiego meglio
