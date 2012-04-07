@@ -1,8 +1,33 @@
-Guida comandi GIT
-1. entrate su gitbash ed effettuate il pull dei file cos� da avere i file aggiornati all'ultima versione corrente
-2. effettuare le modifiche ai file (blablabla buon divertimento)
-3(facoltativo).git rm --force(per cancellare sia da pc che sito oppure --cached per cancellare solo da sito)  -r <nome file o cartella>  (in alternativa "." per cancellare tutto // non lo fate con force o vi ammazzo.)
-4. inserire la stringa "git commit -a -m 'commento' " //apici singoli compresi e vedere che sputa (cit.Nigro)
-5. inserire la stringa "git push -u origin master" //Aggiorna effettivamente i file sul sito
+﻿Base64.java:
+pezzo di codice per codificare e decodificare in base64 preso da qualche parte sul net.
+Utile nelle negoziazioni SASL (e forse anche in quelle TLS; tuttavia non sono ancora
+implementate, essendo opzionali [seppur preferibili]).
 
-Il sito � github.com l'username � progettoalgoritmi
+XMPPCommander.java:
+piccolo client shell in grado (si spera) di inviare dati ai vari server XMPP. Testato (per ora)
+solo sul server Prosody, è stato scritto in circa 2 giorni per la maledetta procedura SASL Digest-MD5;
+in effetti 2 giorni sono stati il tempo necessario per capire come dovesse essere implementato
+il fo****o RFC (2831), dato che sembra scritto da Suor Germana, e comprendere cosa mi sputasse
+fuori la classe MessageDigest della libreria standard di java.
+Ha qualche piccolo difettuccio di lettura del socket (*ahem*), dovuto ai naturali ritardi della rete,
+ma con un server in localhost non dovrebbe dare problemi... del resto lo useremo solo come test...
+comunque con il giusto periodo di sleep sul socket è in grado di dialogare con successo anche
+con il server xmpp di facebook, almeno fino alla fine dell'autenticazione. Per l'invio di comandi
+ci lavorerò su al mio ritorno da queste vacanze...
+Ho saltato l'implementazione di TLS, dato che mi sono rotto ora con l'MD5 e sinceramente mi sc***o a
+comprendere anche il funzionamento di questa, ci penserò su anche per questa dopo le feste.
+Quindi, passando alle cose pratiche... la shell è in grado di connettersi ed autenticarsi con successo
+su un server xmpp (Prosody in particolare) installato sulla vostra macchina in cui sia già registrato
+un account user con password user (o, se modificate il codice, ciò che volete voi). In effetti potreste
+voler registrare direttamente l'account da voi attraverso la shell: questo è possibile commentando il pezzo
+che va da dopo l'invio dell'handshake fino alla dichiarazione delle variabili ad uso della shell (il
+BufferedReader stdIn); una volta entrati nel loop della "shell", seguite l'estensione del protocollo
+XEP-0077 (http://xmpp.org/extensions/xep-0077.html) per registrare il vostro account.
+Alla fine di ogni stanza XML, per inviare effettivamente i comandi al server, dovete digitare "EOF" seguito
+dal tasto invio. Questo segnalerà al programma che avete terminato la stringa da inviare sul socket.
+Se digitate direttamente EOF+Invio senza alcun comando prima, il software "capirà" che avete finito e
+manderà il comando "</stream:stream>" di chiusura dello stream al server, chiudendo altresì il flusso
+di dati sulla porta.
+Buona fortuna, ne avrete bisogno.
+
+Un amico
