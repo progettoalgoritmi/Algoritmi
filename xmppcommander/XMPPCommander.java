@@ -1,3 +1,5 @@
+// Sì, lo so, il codice è una vera m***a... del resto non è che una shell di test e debug...
+
 package xmppcommander;
 import java.io.*;
 import java.net.*;
