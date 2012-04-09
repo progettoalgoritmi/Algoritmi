@@ -19,13 +19,13 @@ public class XMPPCommander {
 		try {
 			socket = new Socket(hostname, port);
 			out = new PrintWriter(socket.getOutputStream());
-			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()), c.length);
 		} catch (UnknownHostException e) {
-			System.err.println("Don't know about host: localhost.");
+			System.err.println("Don't know about host: " + hostname + ".");
 			System.exit(1);
 		} catch (IOException e) {
 			System.err.println("Couldn't get I/O for "
-					+ "the connection to: localhost.");
+					+ "the connection to: " + hostname + ".");
 			System.exit(1);
 		}
 		
@@ -39,17 +39,17 @@ public class XMPPCommander {
 		
 		String auth = "<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl' mechanism='DIGEST-MD5'/>";
 		
-		out.println(handshake);
+		out.write(handshake);
 		out.flush();
 		
 		printBuffer(in);
 		
-		out.println(auth);
+		out.write(auth);
 		out.flush();
 		
 		printBuffer(in);
 		
-		String challenge = new String(Base64.decode(getChallenge(c)));
+		String challenge = new String(Base64.decode(getChallenge(c, in)));
 		System.out.println("Decoded challenge: " + challenge);
 		int nonce_i = challenge.indexOf("nonce=\"");
 		nonce_i += 7;
@@ -102,24 +102,24 @@ public class XMPPCommander {
 		String response = "<response xmlns='urn:ietf:params:xml:ns:xmpp-sasl'>" + encoded_response +
 							"</response>";
 		
-		out.println(response);
+		out.write(response);
 		out.flush();
 		
 		printBuffer(in);
 		
-		challenge = new String(Base64.decode(getChallenge(c)));
+		challenge = new String(Base64.decode(getChallenge(c, in)));
 		System.out.println("Decoded challenge: " + challenge);
 		
 		String auth_final = "<response xmlns='urn:ietf:params:xml:ns:xmpp-sasl'/>";
 		
-		out.println(auth_final);
+		out.write(auth_final);
 		out.flush();
 		
 		printBuffer(in);
 		
 		System.out.println("Authenticated! ;)");
 		
-		out.println(handshake);
+		out.write(handshake);
 		out.flush();
 		
 		printBuffer(in);
@@ -128,39 +128,58 @@ public class XMPPCommander {
 							"<bind xmlns='urn:ietf:params:xml:ns:xmpp-bind'/>" +
 							"</iq>";
 		
-		out.println(bind_resource);
+		out.write(bind_resource);
 		out.flush();
 		
 		printBuffer(in);
 		
+		while (String.valueOf(c).indexOf("/bind") == -1) printBuffer(in);
+		System.out.println("Binding done. Starting shell...");
+		
 		BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 		String userInput;
 		
-		while(true) {
-		String[] arrayInput = new String[100];
-		int i = 0;
-		while (!(userInput = stdIn.readLine()).equals("EOF")) {
-			arrayInput[i] = userInput;
-			i++;
-		}
-		
-		if ((arrayInput[0] == null) || arrayInput[0].equals("CLOSE")) {
-			out.println("</stream:stream>");
-			out.flush();
-			printBuffer(in);
-			break;
-		}
-		
-		
-		for (int j = 0; j < i; j++) {
-			out.println(arrayInput[j]);
-			out.flush();
-		}
-		
-		System.out.println("Sent.");
-		
-		printBuffer(in);
-		
+		boolean flag = true;
+		while(flag) {
+			String[] arrayInput = new String[100];
+			int i = 0;
+			
+			if (String.valueOf(c).contains("</stream:stream>")) { // End if stream is closed
+				flag = false;
+				break;
+			}
+			
+			System.out.print(username + "@" + hostname + "$ ");
+			while (!(userInput = stdIn.readLine()).equals("EOF")) {
+				arrayInput[i] = userInput;
+				i++;
+				System.out.print(username + "@" + hostname + "$ ");
+			}
+
+			if ((arrayInput[0] == null) || arrayInput[0].equals("CLOSE")) {
+				out.write("</stream:stream>");
+				out.flush();
+				printBuffer(in);
+				flag = false;
+				break;
+			}
+
+			for (int j = 0; j < i; j++) {
+				out.write(arrayInput[j]);
+				if (arrayInput[j].contains("</stream:stream>")) {
+					out.flush();
+					printBuffer(in);
+					flag = false;
+					break;
+				}
+			}
+
+			if (flag) {
+				out.flush();
+				System.out.println("Sent.");
+				printBuffer(in);
+			}
+
 		}
 
 		out.close();
@@ -170,9 +189,8 @@ public class XMPPCommander {
 	}
 	
 	private static void printBuffer(BufferedReader in) throws IOException, InterruptedException {
-		Thread.sleep(100);
 		for (int j = 0; j < c.length; j++) c[j] = '\0';
-		in.read(c);
+		in.read(c, 0, c.length);
 		System.out.print("Server: ");
 		for (int j = 0; j < c.length; j++) {
 			System.out.print(c[j]);
@@ -181,7 +199,8 @@ public class XMPPCommander {
 		System.out.println();
 	}
 	
-	private static String getChallenge(char[] c) {
+	private static String getChallenge(char[] c, BufferedReader in) throws IOException, InterruptedException {
+		while ((String.valueOf(c)).indexOf("challenge") == -1) printBuffer(in);
 		StringBuilder sb = new StringBuilder();
 		int j = 0;
 		while (c[j] != '>') j++;
