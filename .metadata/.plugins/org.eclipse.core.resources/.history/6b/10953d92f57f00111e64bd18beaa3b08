@@ -1,0 +1,5 @@
+package xmppcommander;
+
+public class SASLMD5 {
+
+}

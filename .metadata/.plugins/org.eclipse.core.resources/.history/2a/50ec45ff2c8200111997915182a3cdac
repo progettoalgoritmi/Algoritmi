@@ -1,0 +1,24 @@
+package xmppcommander;
+
+import java.io.IOException;
+
+public class PrintSocketBuffer implements Runnable {
+	public PrintSocketBuffer() {}
+	
+	public void run() {
+		while(true) {
+			try {
+				if (XMPPCommander.in.ready()) {
+					for (int j = 0; j < XMPPCommander.c.length; j++) XMPPCommander.c[j] = '\0';
+					XMPPCommander.in.read(XMPPCommander.c);
+					if (String.valueOf(XMPPCommander.c).indexOf("</stream:stream>") != -1) break;
+					System.out.print("Server: ");
+					for (int j = 0; j < XMPPCommander.c.length; j++) {
+						System.out.print(XMPPCommander.c[j]);
+					}
+					System.out.println();
+				}
+			} catch (IOException e) {}
+		}
+	}
+}

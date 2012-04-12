@@ -1,0 +1,6 @@
+package xmppthreadedcommander;
+
+public class XMPPCommander {
+
+	Thread commander = new Thread(new XMPPThreadedCommander);
+}

@@ -1,0 +1,11 @@
+package xmppcommander;
+
+public class Base64 {
+	public String decode(String s) {
+		return null;
+	}
+	
+	public String encode(String s) {
+		return null;
+	}
+}

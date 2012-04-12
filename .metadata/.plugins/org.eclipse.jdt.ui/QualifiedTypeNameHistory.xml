@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="javax.security.auth.callback.CallbackHandler"/>
+<fullyQualifiedTypeName name="javax.security.auth.callback.NameCallback"/>
+<fullyQualifiedTypeName name="javax.security.auth.callback.PasswordCallback"/>
+<fullyQualifiedTypeName name="javax.security.sasl.RealmCallback"/>
+<fullyQualifiedTypeName name="javax.security.sasl.RealmChoiceCallback"/>
+<fullyQualifiedTypeName name="java.lang.Byte"/>
+<fullyQualifiedTypeName name="java.math.BigInteger"/>
+<fullyQualifiedTypeName name="javax.security.sasl.SaslClientFactory"/>
+<fullyQualifiedTypeName name="xmppcommander.SASLMD5"/>
+<fullyQualifiedTypeName name="javax.security.sasl.Sasl"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="javax.security.sasl.SaslClient"/>
+<fullyQualifiedTypeName name="java.security.MessageDigest"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.nio.channels.ServerSocketChannel"/>
+<fullyQualifiedTypeName name="java.nio.channels.SocketChannel"/>
+<fullyQualifiedTypeName name="xmppcommander.XMPPCommander.PrintSocketBuffer"/>
+</qualifiedTypeNameHistroy>

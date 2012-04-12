@@ -1,0 +1,7 @@
+package xmppthreadedcommander;
+
+public class XMPPCommander {
+	public static void main(String[] args) {
+		Thread mainThread = new Thread(new XMPPThreadedCommander());
+	}
+}

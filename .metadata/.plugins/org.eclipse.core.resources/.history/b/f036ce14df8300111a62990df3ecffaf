@@ -1,0 +1,13 @@
+package xmppthreadedcommander;
+
+public class XMPPCommander {
+	
+	syncronized void put() {
+		
+	}
+	
+	public static void main(String[] args) {
+		Thread mainThread = new Thread(new XMPPThreadedCommander());
+		mainThread.start();
+	}
+}
