@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="18" version="2.0">
+<workbench progressCount="14" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="679" x="601" y="6">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
-<coolbarLayout>
+<coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
@@ -18,7 +18,7 @@
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
@@ -27,16 +27,41 @@
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
 </folder>
 </info>
 </editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" partName="Base64.java" path="C:/Algoritmi/XMPPTest/src/xmppcommander/Base64.java" title="Base64.java" tooltip="XMPPTest/src/xmppcommander/Base64.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppcommander/Base64.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" partName="XMPPCommander.java" path="C:/Algoritmi/XMPPTest/src/xmppcommander/XMPPCommander.java" title="XMPPCommander.java" tooltip="XMPPTest/src/xmppcommander/XMPPCommander.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="550" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" partName="StreamReaderThread.java" path="C:/Algoritmi/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java" title="StreamReaderThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPThreadedCommander.java" partName="XMPPThreadedCommander.java" path="C:/Algoritmi/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java" title="XMPPThreadedCommander.java" tooltip="XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" partName="Base64.java" path="C:/Algoritmi/XMPPTest/src/xmppthreadedcommander/Base64.java" title="Base64.java" tooltip="XMPPTest/src/xmppthreadedcommander/Base64.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppthreadedcommander/Base64.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="451" selectionTopPixel="397"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Errors"/>
+<expanded>&#x0A;<category IMemento.internal.id="Errors"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -85,7 +110,7 @@
 <viewState/>
 </view>
 </views>
-<perspectives activePart="org.eclipse.ui.console.ConsoleView" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -195,7 +220,78 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<navigationHistory/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommander/Base64.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppthreadedcommander/Base64.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java"/>
+</editors>
+<item historyLabel="Base64.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="XMPPCommander.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Base64.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="XMPPCommander.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="XMPPCommander.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Base64.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Base64.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Base64.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Base64.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Base64.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Base64.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="StreamReaderThread.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="XMPPThreadedCommander.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="XMPPThreadedCommander.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="StreamReaderThread.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="StreamReaderThread.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="XMPPThreadedCommander.java" index="4">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="StreamReaderThread.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Base64.java" index="0">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="XMPPCommander.java" index="1">
+<position info="not_deleted" x="550" y="0"/>
+</item>
+<item active="true" historyLabel="Base64.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+</navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -212,20 +308,23 @@
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" tooltip="XMPPTest/src/xmppcommander/Base64.java">
-<persistable path="/XMPPTest/src/xmppcommander/Base64.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppcommander/XMPPCommander.java">
-<persistable path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InputEndThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/InputEndThread.java">
-<persistable path="/XMPPTest/src/xmppthreadedcommander/InputEndThread.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" tooltip="XMPPTest/src/xmppthreadedcommander/Base64.java">
+<persistable path="/XMPPTest/src/xmppthreadedcommander/Base64.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPThreadedCommander.java" tooltip="XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java">
 <persistable path="/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java">
 <persistable path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppcommander/XMPPCommander.java">
+<persistable path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" tooltip="XMPPTest/src/xmppcommander/Base64.java">
+<persistable path="/XMPPTest/src/xmppcommander/Base64.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="InputEndThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/InputEndThread.java">
+<persistable path="/XMPPTest/src/xmppthreadedcommander/InputEndThread.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PrintSocketBuffer.java" tooltip="XMPPTest/src/xmppcommander/PrintSocketBuffer.java">
 <persistable path="/XMPPTest/src/xmppcommander/PrintSocketBuffer.java"/>
