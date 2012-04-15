@@ -1,0 +1,45 @@
+package whiletest;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class Whiletest {
+	public static void main(String[] args) {
+		Socket socket = null;
+		PrintWriter out = null;
+		BufferedReader in = null;
+		try {
+			socket = new Socket("www.google.it", 80);
+			out = new PrintWriter(socket.getOutputStream());
+			in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		} catch (UnknownHostException e) {
+			System.err.println("Host not found: www.google.it.");
+		} catch (IOException e) {
+			System.err.println("Couldn't get I/O for www.google.it.");
+		}
+		
+		out.println("GET http://www.google.it HTTP/1.1");
+		out.flush();
+		
+		char buff = '\0';
+		while(buff != 65535)
+			try {
+				buff = (char) in.read();
+				System.out.println(buff);
+				System.out.println("READ!");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		out.close();
+		try {
+			in.close();
+			socket.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}	
+	}
+}

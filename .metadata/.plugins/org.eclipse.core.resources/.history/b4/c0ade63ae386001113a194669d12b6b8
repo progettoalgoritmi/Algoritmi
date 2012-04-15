@@ -1,0 +1,10 @@
+package flyingsquirrel;
+
+public class FlyingSquirrel {
+
+	public static void main(String[] args) {
+		String hostname = "localhost";
+		int port = 5222;
+		
+	}
+}

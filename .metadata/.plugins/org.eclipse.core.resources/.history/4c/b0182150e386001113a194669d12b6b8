@@ -1,0 +1,16 @@
+package flyingsquirrel;
+
+import java.io.IOException;
+import java.net.InetSocketAddress;
+import java.net.SocketAddress;
+import java.nio.channels.SocketChannel;
+
+public class FlyingSquirrel {
+
+	public static void main(String[] args) throws IOException {
+		String hostname = "localhost";
+		int port = 5222;
+		SocketAddress address = new InetSocketAddress(hostname, port);
+		SocketChannel client = SocketChannel.open(address);
+	}
+}
