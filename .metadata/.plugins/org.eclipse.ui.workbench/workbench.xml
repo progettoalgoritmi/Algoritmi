@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="18" version="2.0">
+<workbench progressCount="15" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="600" x="616" y="4">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
-<coolbarLayout locked="0">
+<coolbarLayout>
 <coolItem id="group.file" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
@@ -31,18 +31,13 @@
 <folder appearance="1" expanded="2">
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
-<part id="1"/>
 </presentation>
 </folder>
 </info>
 </editorArea>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ServerCommander.java" partName="ServerCommander.java" path="C:/Algoritmi/XMPPTest/src/TestServer/ServerCommander.java" title="ServerCommander.java" tooltip="XMPPTest/src/TestServer/ServerCommander.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/TestServer/ServerCommander.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="242" selectionTopPixel="790"/>
-</editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" partName="XMPPCommander.java" path="C:/Algoritmi/XMPPTest/src/xmppcommander/XMPPCommander.java" title="XMPPCommander.java" tooltip="XMPPTest/src/xmppcommander/XMPPCommander.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommanderTLS.java" partName="XMPPCommanderTLS.java" path="C:/Users/Antonio/Algoritmi/XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java" title="XMPPCommanderTLS.java" tooltip="XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="3201"/>
 </editor>
 </editors>
 <views>
@@ -51,11 +46,7 @@
 </view>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<expanded>
-<category IMemento.internal.id="Warnings"/>
-<category IMemento.internal.id="Errors"/>
-</expanded>
-<columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -159,10 +150,10 @@
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
-<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars/>
 <layout>
@@ -187,7 +178,7 @@
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.17121771" ratioLeft="232" ratioRight="1123" relationship="2" relative="left"/>
+<info part="org.eclipse.ui.editorss" ratio="0.2679275" ratioLeft="340" ratioRight="929" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.7467742" ratioLeft="463" ratioRight="157" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
@@ -301,159 +292,10 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/TestServer/ServerCommander.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/TestServer/ServerCommander.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java"/>
 </editors>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5340" y="309"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="2757" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3175" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5329" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="2935" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5329" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="2935" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3151" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5329" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3151" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3179" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="2839" y="25"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3175" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5329" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3175" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5329" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3175" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5329" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2602" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5329" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2602" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5329" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2602" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5266" y="64"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2218" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5549" y="69"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2218" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2214" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5549" y="69"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2214" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="3209" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5549" y="69"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="1483" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5549" y="69"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="1483" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2343" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2577" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5260" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2182" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5260" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="2119" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="5260" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="770" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
+<item active="true" historyLabel="XMPPCommanderTLS.java" index="0">
 <position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="770" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="770" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item active="true" historyLabel="ServerCommander.java" index="2">
-<position info="not_deleted" x="770" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -461,6 +303,10 @@
 <workbenchWindowAdvisor/>
 <actionBarAdvisor/>
 <trimLayout>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="org.eclipse.ui.editorss"/>
+<trimItem IMemento.internal.id="right"/>
+</trimArea>
 <trimArea IMemento.internal.id="128">
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
 </trimArea>
@@ -468,48 +314,55 @@
 <trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
 <trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
 <trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
 </trimArea>
 </trimLayout>
 </window>
 <mruList>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppcommander/XMPPCommander.java">
-<persistable path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Server.java" tooltip="XMPPTest/src/TestServer/Server.java">
-<persistable path="/XMPPTest/src/TestServer/Server.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommanderTLS.java" tooltip="XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java">
+<persistable path="/XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java">
 <persistable path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ServerCommander.java" tooltip="XMPPTest/src/TestServer/ServerCommander.java">
-<persistable path="/XMPPTest/src/TestServer/ServerCommander.java"/>
-</file>
-<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="X509TrustManager.class" tooltip="javax.net.ssl.X509TrustManager">
-<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=XMPPTest/C:\/Program Files\/Java\/jre6\/lib\/jsse.jar&lt;javax.net.ssl(X509TrustManager.class"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DummyTrustManager.java" tooltip="XMPPTest/src/xmppseqtls/DummyTrustManager.java">
-<persistable path="/XMPPTest/src/xmppseqtls/DummyTrustManager.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommanderTLS.java" tooltip="XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java">
-<persistable path="/XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="README.txt" tooltip="XMPPTest/src/xmppseqtls/README.txt">
-<persistable path="/XMPPTest/src/xmppseqtls/README.txt"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="README.txt" tooltip="XMPPTest/src/xmppcommander/README.txt">
-<persistable path="/XMPPTest/src/xmppcommander/README.txt"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppcommandertls/StreamReaderThread.java">
-<persistable path="/XMPPTest/src/xmppcommandertls/StreamReaderThread.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" tooltip="XMPPTest/src/xmppthreadedcommander/Base64.java">
+<persistable path="/XMPPTest/src/xmppthreadedcommander/Base64.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppseqtls/XMPPCommander.java">
 <persistable path="/XMPPTest/src/xmppseqtls/XMPPCommander.java"/>
 </file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DummyTrustManager.java" tooltip="XMPPTest/src/xmppseqtls/DummyTrustManager.java">
+<persistable path="/XMPPTest/src/xmppseqtls/DummyTrustManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" tooltip="XMPPTest/src/xmppseqtls/Base64.java">
+<persistable path="/XMPPTest/src/xmppseqtls/Base64.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppcommandertls/StreamReaderThread.java">
+<persistable path="/XMPPTest/src/xmppcommandertls/StreamReaderThread.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DummyTrustManager.java" tooltip="XMPPTest/src/xmppcommandertls/DummyTrustManager.java">
 <persistable path="/XMPPTest/src/xmppcommandertls/DummyTrustManager.java"/>
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PacketReader.java" tooltip="XMPPTest/src/org/jivesoftware/smack/PacketReader.java">
-<persistable path="/XMPPTest/src/org/jivesoftware/smack/PacketReader.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" tooltip="XMPPTest/src/xmppcommandertls/Base64.java">
+<persistable path="/XMPPTest/src/xmppcommandertls/Base64.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Base64.java" tooltip="XMPPTest/src/xmppcommander/Base64.java">
+<persistable path="/XMPPTest/src/xmppcommander/Base64.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppcommander/XMPPCommander.java">
+<persistable path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ServerCommander.java" tooltip="XMPPTest/src/TestServer/ServerCommander.java">
+<persistable path="/XMPPTest/src/TestServer/ServerCommander.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Server.java" tooltip="XMPPTest/src/TestServer/Server.java">
+<persistable path="/XMPPTest/src/TestServer/Server.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="X509TrustManager.class" tooltip="javax.net.ssl.X509TrustManager">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=XMPPTest/C:\/Program Files\/Java\/jre6\/lib\/jsse.jar&lt;javax.net.ssl(X509TrustManager.class"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="README.txt" tooltip="XMPPTest/src/xmppseqtls/README.txt">
+<persistable path="/XMPPTest/src/xmppseqtls/README.txt"/>
 </file>
 </mruList>
 </workbench>

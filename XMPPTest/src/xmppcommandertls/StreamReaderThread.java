@@ -57,6 +57,7 @@ public class StreamReaderThread implements Runnable {
 				((String.valueOf(buffer)).indexOf("urn:ietf:params:xml:ns:xmpp-tls") != -1)) {
 			this.end = true;
 		}
+		if ((String.valueOf(buffer)).indexOf("/stream:stream") != -1) this.end = true; //TODO: buffer is cyclic, fix this
 		if (lastChallengeUsed) lastChallenge = null;
 	}
 	

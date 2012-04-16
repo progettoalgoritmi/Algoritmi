@@ -40,6 +40,8 @@ public class XMPPCommanderTLS {
 		Thread reader = new Thread(in);
 		reader.start();
 		
+		String xmlver = "<?xml version='1.0' encoding='UTF-8'?>";
+		
 		String handshake = "<stream:stream " +
 				"to='" + hostname + "' " +
 				"xmlns='jabber:client' " +
@@ -50,13 +52,16 @@ public class XMPPCommanderTLS {
 
 		String auth = "<auth xmlns='urn:ietf:params:xml:ns:xmpp-sasl' mechanism='DIGEST-MD5'/>";
 	
+		out.println(xmlver);
+		out.flush();
+		
 		out.println(handshake);
 		out.flush();
 		
 		out.println(starttls);
 		out.flush();
 		
-		Thread.sleep(100); //Sleep 'til reader finishes... TODO: must be fixed.
+		Thread.sleep(250); //Sleep 'til reader finishes... TODO: must be fixed.
 		
 		SSLContext sslctxt = SSLContext.getInstance("TLS");
 		sslctxt.init(null, new javax.net.ssl.TrustManager[] {new DummyTrustManager()}, new java.security.SecureRandom());
@@ -159,31 +164,97 @@ public class XMPPCommanderTLS {
 		out.println(bind_resource);
 		out.flush();
 		
+		String showme = "<presence xmlns='jabber:client' from='" + username + "@" + hostname +
+						"'><show>chat</show><status>Up and running.</status></presence>";
+		
+		out.println(showme);
+		out.flush();
+		
 		while (String.valueOf(in.getBuffer()).indexOf("/bind") == -1) Thread.sleep(100);
 
 		BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
 		String userInput;
 		
-		while (!in.isEnded()) {
+		boolean quit = false;
+		
+		while (!in.isEnded() && !quit) {
 			String[] arrayInput = new String[100];
 			int i = 0;
 			
 			while (!in.isEnded()) {
 				userInput = stdIn.readLine();
 				if (userInput.equalsIgnoreCase("send")) break;
+				if (userInput.indexOf("/m") == 0) {
+					int messageStart = 0;
+					try {
+						messageStart = userInput.indexOf(" ", 3);
+						String rcp = userInput.substring(3, messageStart);
+						String msg = userInput.substring(messageStart + 1);
+						String message_request = "<message id='none' type='chat' to='" + rcp + "@" + 
+												hostname + "' from='" + username + "@" + hostname +
+												"'><body>" + msg + "</body></message>";
+						arrayInput[0] = message_request;
+						i = 1;
+						break;
+					} catch (StringIndexOutOfBoundsException e) {
+						System.err.println("Syntax error!\nUsage: /m username message");
+						i = 0;
+					} 
+				}
+				if (userInput.indexOf("/b") == 0) {
+					try {
+						String rcp = userInput.substring(3);
+						String message_request = "<message id='none' type='chat' to='" + rcp + "@" + 
+												hostname + "' from='" + username + "@" + hostname +
+												"'><attention xmlns='urn:xmpp:attention:0'/></message>";
+						arrayInput[0] = message_request;
+						i = 1;
+						break;
+					} catch (StringIndexOutOfBoundsException e) {
+						System.err.println("Syntax error!\nUsage: /b username");
+						i = 0;
+					} 
+				}
+				if (userInput.equalsIgnoreCase("sendMessage")) {
+					System.out.print("to: ");
+					String rcp = stdIn.readLine();
+					System.out.print("message: ");
+					String msg = stdIn.readLine();
+					String message_request = "<message id='none' type='chat' to='" + rcp + "@" + 
+											hostname + "' from='" + username + "@" + hostname +
+											"'><body>" + msg + "</body></message>";
+					arrayInput[0] = message_request;
+					i = 1;
+					break;
+				}
+				if (userInput.equalsIgnoreCase("sendBuzz")) {
+					System.out.print("to: ");
+					String rcp = stdIn.readLine();
+					String message_request = "<message id='none' type='chat' to='" + rcp + "@" + 
+											hostname + "' from='" + username + "@" + hostname +
+											"'><attention xmlns='urn:xmpp:attention:0'/></message>";
+					arrayInput[0] = message_request;
+					i = 1;
+					break;
+				}
+				if (userInput.equalsIgnoreCase("quit")) {
+					arrayInput[0] = "</stream:stream>";
+					i = 1;
+					quit = true;
+					break;
+				}
 				arrayInput[i] = userInput;
 				i++;
 			}
 
 			for (int j = 0; j < i; j++) {
-				out.println(arrayInput[j]);
+				out.write(arrayInput[j]);
 				out.flush();
 			}
-
 		}
-
+		
+		reader.join();
 		out.close();
-		reader.interrupt();
 		buffIn.close();
 		stdIn.close();
 		socket.close();
