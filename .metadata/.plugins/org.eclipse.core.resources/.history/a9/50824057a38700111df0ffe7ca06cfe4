@@ -1,0 +1,13 @@
+package TestServer;
+/*copio allegramente la sintassi di antonio senza capirne il significato GH
+ *costruito interamente in base alle domande inviate dal client*/
+import java.io.*;
+import java.net.*;
+
+public class ServerCommander implements Server{
+	static char[] c = new char[10000];
+	
+	public static void main(String[] args){
+		
+	}
+}

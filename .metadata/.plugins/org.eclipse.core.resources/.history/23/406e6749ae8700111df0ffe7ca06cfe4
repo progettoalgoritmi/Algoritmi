@@ -1,0 +1,74 @@
+package TestServer;
+/*copio allegramente la sintassi di antonio senza capirne il significato GH
+ *costruito interamente in base alle domande inviate dal client
+ *abilmente scopiazzato di qua e di là*/
+import java.io.*;
+import java.net.*;
+
+/*public class ServerCommander{
+
+	private ServerSocket server;
+	private Socket connessione;
+	private BufferedReader dalClient;
+	private PrintStream alClient;
+	private String name;
+	
+	public ServerCommander(String name){
+		this.name = name;
+		try {
+			server = new ServerSocket(1000, 5);
+			System.out.println("Server attivo");
+			connessione = server.accept();
+			dalClient = new BufferedReader(new InputStreamReader(connessione.getInputStream()));
+			alClient = new PrintStream(connessione.getOutputStream());
+		}
+		catch(IOException e) {
+			System.out.println(e);
+		}
+	} // Server()
+ 
+	public void conversazione() {
+		String messaggio = "";
+		BufferedReader t = new BufferedReader(new InputStreamReader(System.in));
+		try {
+			alClient.println("Sei connesso al server! Digita /logout per effetuare la disconnessione.");
+			while(!messaggio.equals("/logout")) {
+				messaggio = dalClient.readLine();
+				System.out.println(messaggio);
+				if(!messaggio.equals("/logout")) {
+					messaggio = t.readLine();
+					alClient.println(" scrive: "+messaggio);
+				}
+			} // while
+		}
+		catch(IOException e) {
+			System.out.println("Conversazione interrotta");
+		}
+	} // conversazione()
+}*/
+	
+
+	public class ServerCommander implements Server{
+		static char[] s = new char[10000];
+		private static Socket connection;
+		private static BufferedReader reader;
+		private static PrintStream writer;
+	  	public ServerCommander() throws IOException{
+	  		
+	  	}
+	  	
+		public static void main(String[] args) throws UnknownHostException, IOException{
+			//ServerCommander server=new ServerCommander();
+			try{
+				ServerSocket socket = new ServerSocket(5222);
+				System.out.println("Server on");
+				connection=socket.accept();//in teoria dovrebbe esserci sempre un serverSocket,magari su un altro thread,in attesa di un nuovo client che si vuole connettere,TODO
+				reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+				writer = new PrintStream(connection.getOutputStream());
+		  	}catch(Exception e){System.err.println(e);}//avevo scritto System.orr di orrori ma non me l'ha preso :(
+		  	while(reader.equals("lol"))System.out.println("none");
+		  	String handshake=reader.readLine();
+		  	System.out.println(handshake);
+		  	while(true);
+	}
+}

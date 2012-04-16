@@ -13,7 +13,6 @@
 <fullyQualifiedTypeName name="java.util.HashMap"/>
 <fullyQualifiedTypeName name="javax.security.sasl.SaslClient"/>
 <fullyQualifiedTypeName name="java.security.MessageDigest"/>
-<fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="java.nio.channels.ServerSocketChannel"/>
 <fullyQualifiedTypeName name="xmppcommander.XMPPCommander.PrintSocketBuffer"/>
 <fullyQualifiedTypeName name="java.net.Socket"/>
@@ -34,4 +33,8 @@
 <fullyQualifiedTypeName name="java.nio.CharBuffer"/>
 <fullyQualifiedTypeName name="javax.net.ssl.HttpsURLConnection"/>
 <fullyQualifiedTypeName name="javax.net.ssl.TrustManager"/>
+<fullyQualifiedTypeName name="java.util.Scanner"/>
+<fullyQualifiedTypeName name="java.io.Reader"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
 </qualifiedTypeNameHistroy>
