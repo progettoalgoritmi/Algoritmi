@@ -1,9 +1,9 @@
 package TestServer;
-/*copio allegramente la sintassi di antonio senza capirne il significato GH
- *costruito interamente in base alle domande inviate dal client
+/*costruito interamente in base alle domande inviate dal client
  *abilmente scopiazzato di qua e di là*/
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 /*
 	public void conversazione() {
@@ -33,11 +33,11 @@ import java.net.*;
 		private static BufferedReader reader;
 		private static PrintStream writer;
 	  	public ServerCommander() throws IOException{
-	  		
+	  		//TODO
 	  	}
 	  	
 		public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException{
-			//ServerCommander server=new ServerCommander();
+			//ServerCommander server=new ServerCommander(); //si richiamerà poi server.qualcosa per dare i comandi
 			try{
 				ServerSocket socket = new ServerSocket(5222);
 				System.out.println("Server on");
@@ -51,7 +51,11 @@ import java.net.*;
 		  	System.out.println("no exeption");
 		  	String handshake=readBuffer(reader);
 		  	System.out.println(handshake);
-		  	//TODO String tokenizer o Scanner?
+		  	//if(!handshake.matches("[<stream:stream to='][.]+[' xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='][.]+['>]")) throw new IllegalArgumentException();
+		  	Scanner sc=new Scanner(handshake);
+		  	sc.delimiter();
+		  	//TODO
+		  	
 		  	while(true);//test
 		  	/*writer.close();
 			reader.close();
@@ -59,7 +63,6 @@ import java.net.*;
 	}
 		
 	private static String readBuffer(BufferedReader in) throws IOException, InterruptedException {
-
 		s=new char[10000];
 		int x=in.read(s, 0, s.length);
 		StringBuilder sb=new StringBuilder();
