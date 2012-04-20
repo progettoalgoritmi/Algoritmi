@@ -62,7 +62,7 @@ import java.util.*;
 		  	if(!sc.hasMoreTokens()||!sc.nextToken().equals("1.0"))throw new IllegalArgumentException();
 		  	String handshake2="<stream:stream from='"+connection.hashCode()+"' xmlns='jabber:client' xmlns:stream='http://etherx.jabber.org/streams' version='1.0'>";
 		  	writer.write(handshake2);
-		  	writer.flush();
+		  	Thread.sleep(100);
 		  	String auth=readBuffer(reader);
 		  	System.out.println(auth);
 		  	while(true);//test
@@ -81,7 +81,7 @@ import java.util.*;
 		
 	private static String readBuffer(BufferedReader in) throws IOException, InterruptedException {
 		s=new char[10000];
-		in.read(s, 0, s.length);
+		int x=in.read(s, 0, s.length);
 		StringBuilder sb=new StringBuilder();
 		for (int j = 0; s[j]!='>'&&j<s.length; j++) {//ci pensa lo string tokenizer a vedere se hanno scritto cavolate
 			sb.append(s[j]);
