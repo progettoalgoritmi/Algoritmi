@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="18" version="2.0">
+<workbench progressCount="20" version="2.0">
 <workbenchAdvisor/>
 <window height="768" maximized="true" width="600" x="616" y="4">
 <fastViewData fastViewLocation="1024"/>
@@ -33,6 +33,7 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
@@ -45,9 +46,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="433"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" partName="StreamReaderThread.java" path="C:/Algoritmi/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java" title="StreamReaderThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" partName="StreamReaderThread.java" path="C:/Algoritmi/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java" title="StreamReaderThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1467" selectionTopPixel="1275"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AutenticationGUI.java" partName="AutenticationGUI.java" path="C:/Algoritmi/XMPPTest/src/graficaClient/AutenticationGUI.java" title="AutenticationGUI.java" tooltip="XMPPTest/src/graficaClient/AutenticationGUI.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/graficaClient/AutenticationGUI.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5042" selectionTopPixel="2040"/>
 </editor>
 </editors>
 <views>
@@ -57,7 +62,7 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings"/>
+<category IMemento.internal.id="Warnings (1 item)"/>
 </expanded>
 <columnWidths org.eclipse.ui.ide.locationField="0" org.eclipse.ui.ide.markerType="0" org.eclipse.ui.ide.pathField="0" org.eclipse.ui.ide.resourceField="0" org.eclipse.ui.ide.severityAndDescriptionField="0"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
@@ -306,7 +311,6 @@
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/TestServer/ServerCommander.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/graficaClient/AutenticationGUI.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/graficaClient/Font.java"/>
@@ -317,156 +321,157 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/graficaClient/Menu_Options.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/graficaClient/AutenticationGUI.java"/>
 </editors>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3301" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="1405" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3751" y="0"/>
-</item>
-<item historyLabel="XMPPCommander.java" index="1">
-<position info="not_deleted" x="1405" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="3751" y="0"/>
-</item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
-<position/>
-</item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
 <position info="not_deleted" x="3751" y="0"/>
 </item>
-<item historyLabel="XMPPCommander.java" index="3">
+<item historyLabel="XMPPCommander.java" index="2">
 <position info="not_deleted" x="696" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
 <position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="XMPPCommander.java" index="3">
+<item historyLabel="XMPPCommander.java" index="2">
 <position info="not_deleted" x="696" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position/>
 </item>
-<item historyLabel="XMPPCommander.java" index="3">
+<item historyLabel="XMPPCommander.java" index="2">
 <position info="not_deleted" x="696" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position/>
 </item>
-<item historyLabel="Font.java" index="4">
+<item historyLabel="Font.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="GraficBoard.java" index="5">
+<item historyLabel="GraficBoard.java" index="4">
 <position info="not_deleted" x="55" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="2035" y="0"/>
 </item>
-<item historyLabel="ClientGUI.java" index="6">
+<item historyLabel="ClientGUI.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="2035" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="1013" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="972" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="942" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="2619" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="2774" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="2772" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="2771" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="2085" y="0"/>
 </item>
-<item historyLabel="Options.java" index="7">
+<item historyLabel="Options.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
 <position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="Options.java" index="7">
+<item historyLabel="Options.java" index="6">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="MenuOptions.java" index="8">
+<item historyLabel="MenuOptions.java" index="7">
 <position info="not_deleted" x="204" y="0"/>
 </item>
-<item historyLabel="Menu_Options.java" index="9">
+<item historyLabel="Menu_Options.java" index="8">
 <position info="not_deleted" x="205" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
 <position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="2">
+<item historyLabel="AutenticationGUI.java" index="1">
 <position info="not_deleted" x="2713" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
 <position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="XMPPCommander.java" index="3">
+<item historyLabel="XMPPCommander.java" index="2">
 <position info="not_deleted" x="696" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
 <position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="XMPPThreadedCommander.java" index="10">
+<item historyLabel="XMPPThreadedCommander.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="StreamReaderThread.java" index="11">
+<item historyLabel="StreamReaderThread.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="XMPPThreadedCommander.java" index="10">
+<item historyLabel="XMPPThreadedCommander.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="StreamReaderThread.java" index="11">
+<item historyLabel="StreamReaderThread.java" index="10">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="StreamReaderThread.java" index="11">
+<item historyLabel="StreamReaderThread.java" index="10">
 <position info="not_deleted" x="1467" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
 <position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="XMPPThreadedCommander.java" index="10">
+<item historyLabel="XMPPThreadedCommander.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
 <position info="not_deleted" x="957" y="0"/>
 </item>
-<item historyLabel="XMPPThreadedCommander.java" index="10">
+<item historyLabel="XMPPThreadedCommander.java" index="9">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="StreamReaderThread.java" index="11">
+<item historyLabel="StreamReaderThread.java" index="10">
 <position info="not_deleted" x="1467" y="0"/>
+</item>
+<item historyLabel="AutenticationGUI.java" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="AutenticationGUI.java" index="11">
+<position info="not_deleted" x="1890" y="0"/>
+</item>
+<item historyLabel="AutenticationGUI.java" index="11">
+<position info="not_deleted" x="1627" y="0"/>
+</item>
+<item historyLabel="AutenticationGUI.java" index="11">
+<position info="not_deleted" x="1380" y="0"/>
+</item>
+<item historyLabel="AutenticationGUI.java" index="11">
+<position info="not_deleted" x="5324" y="0"/>
+</item>
+<item active="true" historyLabel="AutenticationGUI.java" index="11">
+<position info="not_deleted" x="1121" y="44"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -485,6 +490,9 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AutenticationGUI.java" tooltip="XMPPTest/src/graficaClient/AutenticationGUI.java">
+<persistable path="/XMPPTest/src/graficaClient/AutenticationGUI.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java">
 <persistable path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
 </file>
@@ -502,9 +510,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Font.java" tooltip="XMPPTest/src/graficaClient/Font.java">
 <persistable path="/XMPPTest/src/graficaClient/Font.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AutenticationGUI.java" tooltip="XMPPTest/src/graficaClient/AutenticationGUI.java">
-<persistable path="/XMPPTest/src/graficaClient/AutenticationGUI.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppcommander/XMPPCommander.java">
 <persistable path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>

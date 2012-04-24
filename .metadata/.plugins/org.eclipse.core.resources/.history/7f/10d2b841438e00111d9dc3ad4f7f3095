@@ -31,10 +31,10 @@ public class AutenticationGUI {
 		username= new TextField();
 		username.setMaximumSize(new Dimension(180,20));
 		//Username Listener
-		username.addKeyListener(new KeyListener(){
+		pw.addKeyListener(new KeyListener(){
 			public void keyPressed(KeyEvent arg0){
-				if(arg0.getKeyCode()==KeyEvent.VK_ENTER) //se premi enter passa al frame della pw; io sbaglio questa cosa sempre per cui la implemento @peppe
-					pw.requestFocus();
+				if(arg0.getKeyCode()==KeyEvent.VK_ENTER)
+					pw.setFocusable(true);
 			}
 			public void keyReleased(KeyEvent arg0){}public void keyTyped(KeyEvent arg0){}
 		});//username listener
@@ -126,20 +126,13 @@ public class AutenticationGUI {
 		f.setVisible(true);
 	}
 	
-	/**
-	 * Questo metodo ci ridimensiona le immagini scelte per l'account
-	 * in modo tale da non sfasare tutti gli altri componenti del frame
-	 * Completo
-	 */
-	private ImageIcon impostaIcona(String x){
-		ImageIcon icona;
-		Image im,ima;
+	private void ImpostaIcona(String x){
 		String image=".\\src\\graficaClient\\Images\\";
-		//image=image+x; questa parte poi si sblocca quando creo il metodo per impostarlo esternamente
-		ImageIcon icon= new ImageIcon(x);
-		im=icon.getImage();
-		ima=im.getScaledInstance(255,255,Image.SCALE_AREA_AVERAGING);
-		return icona= new ImageIcon(ima);
+		image=image+x;
+		ImageIcon prov= new ImageIcon (image);
+		if(prov.getIconWidth()>225&&prov.getIconHeight()>225){//larghezza,altezza
+			//dobbiamo ridimensionare l'immagine @mario
+		}
 	}
 
 	@SuppressWarnings("serial")
