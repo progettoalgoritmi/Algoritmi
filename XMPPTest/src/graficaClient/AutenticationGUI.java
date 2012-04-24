@@ -2,7 +2,6 @@ package graficaClient;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class AutenticationGUI {
@@ -18,13 +17,16 @@ public class AutenticationGUI {
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(350,550);
 		Dimension x= Toolkit.getDefaultToolkit().getScreenSize();
-		f.setLocation(x.width/3, x.height/4);
+		f.setLocation(x.width/3,x.height/4);//da me non si vede centrato @peppe TODO
 		f.setTitle("Autentication");
 		f.setIconImage(Toolkit.getDefaultToolkit().getImage(logo));
 		JPanel pbase= new JPanel();
 		pbase.setLayout(new BorderLayout());
 		JLabel user= new JLabel("Username");
 		JLabel lpw= new JLabel("Password");
+		JLabel errorAuth= new JLabel("Username o Password errati. Riprova");
+		errorAuth.setForeground(Color.RED);
+		errorAuth.setVisible(false);
 		username= new TextField();
 		username.setMaximumSize(new Dimension(180,20));
 		pw= new JPasswordField();
@@ -35,28 +37,71 @@ public class AutenticationGUI {
 		JButton ok= new JButton(connect);
 		JButton ko= new JButton(canc);
 		
+		//Canc Listener
+		ko.addMouseListener(new MouseListener(){
+			public void mouseClicked(MouseEvent e) {
+				System.exit(0);
+			}
+			public void mouseEntered(MouseEvent e) {}
+			public void mouseExited(MouseEvent e) {}
+			public void mousePressed(MouseEvent e) {}
+			public void mouseReleased(MouseEvent e) {}
+		});
+		
+		//Connect Listener
+		ok.addMouseListener(new MouseListener(){
+			public void mouseClicked(MouseEvent e) {
+				/*Guarda nel database se sono presenti user e pw:
+				 * in caso affermativo genera un oggetto ClientGui 
+				 * in caso negativo si riceve un messaggio di errore (possibilmente non con alert di java che fa cagare) dove si chiede di reinserire user e pw 
+				 * connection(che non so in che classe sta) in caso di autenticazione fallita solleva una AuthenticationException
+				 errorAuth.setVisible(false);
+				 try{
+				 		connection(username.toString(),pw.toString());
+				 }catch(AuthenticationException e){
+				  		errorAuth.setVisible(true);
+				 }
+				 */
+				// TODO
+			}
+			public void mouseEntered(MouseEvent e) {}
+			public void mouseExited(MouseEvent e) {}
+			public void mousePressed(MouseEvent e) {}
+			public void mouseReleased(MouseEvent e) {}
+		});
+		
 		JMenuBar mb= new JMenuBar();
 		f.setJMenuBar(mb);
 		JMenu file= new JMenu("File");
+		JMenuItem options=new JMenuItem("Option");//deve settare true la visibilità di Options
+		file.add(new JSeparator());
+		file.add(options);
 		JMenu help= new JMenu("Help");
 		mb.add(file);
 		mb.add(help);
 		JLabel icon= new JLabel(icona);
 		pbase.add(icon,BorderLayout.NORTH);				
 		Box vet=Box.createVerticalBox();
-		vet.add(Box.createVerticalStrut(80));		
+		vet.add(Box.createVerticalStrut(80));	
+		//box username
 		Box us= Box.createHorizontalBox();
 		us.add(user);
 		us.add(Box.createHorizontalStrut(20));
 		us.add(username);
 		vet.add(us);
 		vet.add(Box.createVerticalStrut(10));
+		//box pw
 		Box bpw= Box.createHorizontalBox();
 		bpw.add(lpw);
 		bpw.add(Box.createHorizontalStrut(20));
 		bpw.add(pw);
 		vet.add(bpw);
+		//box errore login
+		Box boxError=Box.createHorizontalBox();
+		boxError.add(errorAuth);
+		vet.add(boxError);
 		vet.add(Box.createVerticalStrut(10));
+		//box bottoni
 		Box bot= Box.createHorizontalBox();
 		bot.add(ok);
 		bot.add(Box.createHorizontalStrut(15));
@@ -68,19 +113,16 @@ public class AutenticationGUI {
 	}
 	
 	private void ImpostaIcona(String x){
-		int larghezza;
-		int altezza;
 		String image=".\\src\\graficaClient\\Images\\";
 		image=image+x;
 		ImageIcon prov= new ImageIcon (image);
-		larghezza=prov.getIconWidth();
-		altezza=prov.getIconHeight();
-		if(larghezza>225&&altezza>225){
-			//dobbiamo ridimensionare l'immagine
+		if(prov.getIconWidth()>225&&prov.getIconHeight()>225){//larghezza,altezza
+			//dobbiamo ridimensionare l'immagine @mario
 			
 		}
 	}
 
+	@SuppressWarnings("serial")
 	public class AzioneBott extends AbstractAction{
 		public AzioneBott(String nome){
 			putValue(Action.NAME,nome);
@@ -88,7 +130,7 @@ public class AutenticationGUI {
 			}
 		
 		public void actionPerformed(ActionEvent e) {
-			System.out.print(Action.NAME);
+			System.out.print(Action.NAME);//TEST
 			
 				username.setText(null);
 				pw.setText(null);
@@ -98,7 +140,7 @@ public class AutenticationGUI {
 			 */
 		}
 		
-}
+	}
 	
 	public static void main (String args[]){
 		AutenticationGUI s= new AutenticationGUI();
