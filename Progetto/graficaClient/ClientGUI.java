@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import javax.swing.*;
-import javax.swing.filechooser.FileFilter;
+import ClasseMix.*;
 
 public class ClientGUI {
 	JFrame f;
@@ -17,26 +17,15 @@ public class ClientGUI {
 	String g="foto.jpg";
 	String k="chat.jpg";
 	String iconatipo=logo;
+	String trl="trillo.jpg";
 	ImageIcon accountIcona;
 	TextArea legge;
+	TextField jtf;
 	TextArea scrive;
 	JTabbedPane centro;
 	JTabbedPane sud;
+	JLabel icon;
 	public enum Lingua{Italiano, Francese, Inglese, Spagnolo, Tedesco, Calabrese}
-	public enum Contatto{}
-	public enum Stato{}
-	public enum Chiudi{}
-	public enum Esci{}
-	public enum Contatti{}
-	public enum Action{}
-	public enum Inviaimmagine{}
-	public enum InviaFile{}
-	public enum Opzioni{}
-	public enum Setlingua{}
-	public enum Seticona{}
-	public enum Setpassw{}
-	public enum Bottoneok{}
-	public enum Bottoneko{}
 	
 	//Questa e' l'icona dell'account ogni volta che si chiude la connessione la facciamo aggiornare sul database
 	
@@ -44,7 +33,7 @@ public class ClientGUI {
 		//(String lingua, String ico){ questo si aggiunge alla fine quando poi gli passiamo i valori dal frame
 		// precedenti nel caso in cui vengono impostati inizialmente
 		f= new JFrame();
-		MiniIcona();
+		f=RomeoGraphicsUtility.miniIcona(f);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Dimension x= Toolkit.getDefaultToolkit().getScreenSize();
 		f.setLocation(x.width/4,x.height/9);
@@ -79,11 +68,18 @@ public class ClientGUI {
 			}
 		});
 		
-		JMenuItem account= new JMenuItem("Account");
-		JMenu lingua= new JMenu("Select Language");
-		JMenuItem ita= new JMenuItem("Italiano");
+//Listener account
+		JMenuItem account= new JMenuItem("Set Account");
+		account.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				Option op= new Option();
+			}			
+			});
 		
+		JMenu lingua= new JMenu("Select Language");
+				
 //Listener Italiano
+		JMenuItem ita= new JMenuItem("Italiano");
 		ita.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				Lingua x= Lingua.Italiano;
@@ -143,32 +139,25 @@ public class ClientGUI {
 		lingua.add(ger);
 		lingua.add(cal);
 		JMenuItem pass= new JMenuItem("Change Password");
-		JMenuItem about= new JMenuItem("About");
 		
-//Listener Select Icon
-		JMenuItem icona= new JMenuItem("Select Icon");
-		icona.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e) {
-				JFileChooser jf= new JFileChooser();
-				jf.setMultiSelectionEnabled(false);
-				jf.setCurrentDirectory(new File(".\\src\\graficaClient\\Images\\"));
-				ExtensionFileFilter filtro= new ExtensionFileFilter();
-				filtro.addExtension("jpg", false);
-				filtro.addExtension("gif",false);
-				filtro.addExtension("jpeg", false);
-				filtro.setDescription("Image File");
-				jf.setDialogTitle("Icon");
-				jf.setApproveButtonText("Select");
-				jf.setFileFilter(filtro);
-				
-				int x=jf.showOpenDialog(f);
-				if(x==JFileChooser.APPROVE_OPTION){
-				String name=jf.getSelectedFile().getName();
-				System.out.print(name);
-				//accountIcona=RomeoGraphicsUtility.impostaIcona(name, 255, 255); questo si applica alla fine
-				}
+//Listener about
+		JMenuItem about= new JMenuItem("About");
+		about.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				RomeoGraphicsUtility.aboutProg();
 			}
 		});
+		
+//Listener Select Icon
+		JMenuItem icona= new JMenuItem("Set Icon");
+		icona.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				String name= RomeoGraphicsUtility.setIcon(f);
+				accountIcona=RomeoGraphicsUtility.impostaIcona(name,255,255);
+				icon.setIcon(accountIcona);
+				icon.repaint();
+				}
+			});
 		
 		JMenu stato= new JMenu("State");
 		JMenuItem lin= new JMenuItem("Online");
@@ -208,8 +197,7 @@ public class ClientGUI {
 				int x=jf.showOpenDialog(f);
 				if(x==JFileChooser.APPROVE_OPTION){
 				String name=jf.getSelectedFile().getName();
-				System.out.print(name);
-				//Qui poi va la parte dell'invio dell'immagine
+				RomeoGraphicsUtility.invioDati(name);
 				}
 			}
 		});
@@ -226,8 +214,7 @@ public class ClientGUI {
 				int x=jf.showOpenDialog(f);
 				if(x==JFileChooser.APPROVE_OPTION){
 				String name=jf.getSelectedFile().getName();
-				System.out.print(name);
-				//Qui invece va la parte dell'invio del file di qualsiasi tipo
+				RomeoGraphicsUtility.invioDati(name);
 				}
 			}
 		});
@@ -235,10 +222,10 @@ public class ClientGUI {
 		action.add(send1);
 		action.add(send2);		
 		sud= new JTabbedPane(JTabbedPane.TOP);
+		
+//Listener scrivi
 		scrive= new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);
 		scrive.setEditable(true);
-	
-//Listener scrivi
 		scrive.addKeyListener(new KeyListener(){
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode()== KeyEvent.VK_ENTER){
@@ -249,17 +236,66 @@ public class ClientGUI {
 			public void keyTyped(KeyEvent e) {}
 			});
 
-		Icon smile= ClientGUI.impostaIcona(s,30,30);
-		Icon font= ClientGUI.impostaIcona(t,30,30);
-		Icon write= ClientGUI.impostaIcona(w, 30,30);
-		Icon rar= ClientGUI.impostaIcona(r, 30, 30);
-		Icon img= ClientGUI.impostaIcona(g, 30, 30);
-		Icon chat= ClientGUI.impostaIcona(k,30,30);
+		Icon smile= RomeoGraphicsUtility.impostaIcona(s,30,30);
+		Icon font= RomeoGraphicsUtility.impostaIcona(t,30,30);
+		Icon write= RomeoGraphicsUtility.impostaIcona(w, 30,30);
+		Icon rar= RomeoGraphicsUtility.impostaIcona(r, 30, 30);
+		Icon img= RomeoGraphicsUtility.impostaIcona(g, 30, 30);
+		Icon chat= RomeoGraphicsUtility.impostaIcona(k,30,30);
+		Icon trill= RomeoGraphicsUtility.impostaIcona(trl, 30, 30);
 		JPanel panelsmile= new JPanel();
 		JPanel panelfont= new JPanel();
 		JPanel panelwrite= new JPanel();
 		JPanel panelrar= new JPanel();
 		JPanel panelimg= new JPanel();
+		JPanel paneltril= new JPanel();
+		paneltril.setVisible(false);
+		
+		jtf= new TextField();
+		jtf.setMaximumSize(new Dimension(180,20));
+		JButton jtfb= new JButton("Seach");
+		JButton jtfbok= new JButton("Ok");
+		JLabel ind= new JLabel("Insert");
+		Box orz= Box.createHorizontalBox();
+		orz.add(ind);
+		orz.add(Box.createHorizontalStrut(10));
+		orz.add(jtf);
+		orz.add(Box.createHorizontalStrut(30));
+		orz.add(jtfb);
+		orz.add(Box.createHorizontalStrut(10));
+		orz.add(jtfbok);
+		
+//Listener TextField
+		jtf.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				String x= jtf.getText();
+				RomeoGraphicsUtility.invioDati(x);
+			}
+		});
+		
+//Listener cerca
+		jtfb.addMouseListener(new MouseListener(){
+			public void mouseClicked(MouseEvent e) {
+				RomeoGraphicsUtility.invioDati(RomeoGraphicsUtility.setIcon(f));
+			}
+			public void mouseEntered(MouseEvent e) {}
+			public void mouseExited(MouseEvent e) {}
+			public void mousePressed(MouseEvent e) {}
+			public void mouseReleased(MouseEvent e) {}
+		});
+		
+		jtfbok.addMouseListener(new MouseListener(){
+			public void mouseClicked(MouseEvent e) {
+				
+			}
+			public void mouseEntered(MouseEvent e) {}
+			public void mouseExited(MouseEvent e) {}
+			public void mousePressed(MouseEvent e) {}
+			public void mouseReleased(MouseEvent e) {}
+		});
+		
+		panelrar.add(orz);
+				
 		Box vet= Box.createVerticalBox();
 		
 //Listener Send
@@ -301,14 +337,18 @@ public class ClientGUI {
 		sud.setIconAt(0, chat);
 		sud.add(panelsmile);
 		sud.setIconAt(1, smile);
+		sud.add(paneltril);
+		sud.setIconAt(2,trill);
 		sud.add(panelfont);
-		sud.setIconAt(2, font);
+		sud.setIconAt(3, font);
 		sud.add(panelwrite);
-		sud.setIconAt(3, write);
+		sud.setIconAt(4, write);
 		sud.add(panelrar);
-		sud.setIconAt(4, rar);
+		sud.setIconAt(5, rar);
 		sud.add(panelimg);
-		sud.setIconAt(5, img);
+		sud.setIconAt(6, img);
+		
+		
 		centro= new JTabbedPane(JTabbedPane.TOP);	
 		Box oz= Box.createHorizontalBox();
 		Box vet1= Box.createVerticalBox();
@@ -316,7 +356,7 @@ public class ClientGUI {
 		legge.setEditable(false);
 		oz.add(legge);
 		oz.add(Box.createHorizontalStrut(10));
-		JLabel icon= new JLabel(ClientGUI.impostaIcona(iconatipo, 145, 145));
+		JLabel icon= new JLabel(RomeoGraphicsUtility.impostaIcona(iconatipo, 145, 145));
 		vet1.add(icon);
 		vet1.add(Box.createVerticalGlue());
 		oz.add(vet1);
@@ -327,86 +367,6 @@ public class ClientGUI {
 		scrive.setVisible(true);
 		f.setVisible(true);
 	}
-	
-	private static ImageIcon impostaIcona(String x, int l, int h){
-		Image im,ima;
-		String image=".\\src\\graficaClient\\Images\\";
-		image=image+x;
-		ImageIcon icon= new ImageIcon(image);
-		im=icon.getImage();
-		ima=im.getScaledInstance(l,h,Image.SCALE_AREA_AVERAGING);
-		return new ImageIcon(ima);
-	}
-	
-	private void MiniIcona(){
-		SystemTray st=null;
-		final TrayIcon ti;
-		try{
-		if(SystemTray.isSupported()==true){
-			st=SystemTray.getSystemTray();
-		Image imgg = Toolkit.getDefaultToolkit().getImage(".\\src\\graficaClient\\Images\\autenticatio_logo.png").getScaledInstance(15, 16,Image.SCALE_AREA_AVERAGING);
-		 ti= new TrayIcon(imgg);
-			final JPopupMenu pm= new JPopupMenu();
-			JMenuItem apri= new JMenuItem("Open");
-	
-//Listener apri
-			apri.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e) {
-					f.setVisible(true);
-				}
-			});
-			
-			JMenuItem esci= new JMenuItem("Exit");
-			
-//Listener esci
-			esci.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e) {
-					 f.setVisible(false);
-				     SystemTray.getSystemTray().remove(ti);
-				     System.exit(0);
-				}
-				});
-			
-			JMenuItem nascondi= new JMenuItem("Ghost");
-			
-//Listener nascondi
-			nascondi.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e) {
-					 f.setVisible(false);
-				}
-				});
-			
-			pm.add(apri);
-			pm.add(nascondi);
-			pm.add(new JSeparator());
-			pm.add(esci);
-			st.add(ti);
-			
-//Listener TrayIcon
-			ti.addMouseListener(new MouseListener(){
-					public void mouseClicked(MouseEvent e) {
-						if(e.getButton()==1){
-							if(f.isVisible()==true)
-								f.setVisible(false);
-							else
-								f.setVisible(true);
-						}else
-							if(e.getButton()==3){
-								pm.show(e.getComponent(), e.getX(), e.getY());
-						      	}
-					}
-					public void mouseEntered(MouseEvent e) {}
-					public void mouseExited(MouseEvent e) {}
-					public void mousePressed(MouseEvent e) {}
-					public void mouseReleased(MouseEvent e) {}
-					});
-			
-		}
-		}
-		catch (AWTException e1) {
-			System.err.print("Don't supported by OperatioSistem ");
-		}
-		}	
 	
 	private void invio(){
 		String x=scrive.getText();

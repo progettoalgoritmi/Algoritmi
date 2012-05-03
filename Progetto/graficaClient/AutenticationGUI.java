@@ -2,8 +2,9 @@ package graficaClient;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
+
 import javax.swing.*;
+import ClasseMix.*;
 
 public class AutenticationGUI {
 	
@@ -12,10 +13,11 @@ public class AutenticationGUI {
 	JPasswordField pw;
 	String Icon="480192_640px.jpg";
 	ImageIcon accountIcona;
+	JLabel icon;
 	
 	public AutenticationGUI(){
 		f=new JFrame();
-		MiniIcona();
+		f=RomeoGraphicsUtility.miniIcona(f);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(350,550);
 		Dimension x= Toolkit.getDefaultToolkit().getScreenSize();
@@ -29,10 +31,10 @@ public class AutenticationGUI {
 		JLabel errorAuth= new JLabel("Username o Password errati. Riprova");
 		errorAuth.setForeground(Color.RED);
 		errorAuth.setVisible(false);
-		username= new TextField();
-		username.setMaximumSize(new Dimension(180,20));
 		
 //Username Listener
+		username= new TextField();
+		username.setMaximumSize(new Dimension(180,20));
 		username.addKeyListener(new KeyListener(){
 			public void keyPressed(KeyEvent e){
 				if(e.getKeyCode()==KeyEvent.VK_ENTER)
@@ -42,10 +44,9 @@ public class AutenticationGUI {
 			public void keyTyped(KeyEvent arg0){}
 		});
 		
+//Listener Password
 		pw= new JPasswordField();
 		pw.setMaximumSize(new Dimension(180,20));
-		
-//Pw Listener
 		pw.addKeyListener(new KeyListener(){
 			public void keyPressed(KeyEvent e){
 				if(e.getKeyCode()==KeyEvent.VK_ENTER) System.out.println("Pressed Enter");
@@ -57,10 +58,9 @@ public class AutenticationGUI {
 		
 		Action connect= new AzioneBott("Connect");
 		Action canc= new AzioneBott("Canc");
-		JButton ok= new JButton(connect);
-		JButton ko= new JButton(canc);
 		
-//Canc Listener
+//Listener Canc
+		JButton ko= new JButton(canc);
 		ko.addMouseListener(new MouseListener(){
 			public void mouseClicked(MouseEvent e) {
 				username.setText(null);
@@ -73,6 +73,7 @@ public class AutenticationGUI {
 		});
 		
 //Connect Listener
+		JButton ok= new JButton(connect);
 		ok.addMouseListener(new MouseListener(){
 			public void mouseClicked(MouseEvent e) {
 				/*Guarda nel database se sono presenti user e pw:
@@ -99,71 +100,84 @@ public class AutenticationGUI {
 		JMenuBar mb= new JMenuBar();
 		f.setJMenuBar(mb);
 		JMenu file= new JMenu("File");
-		JMenuItem imIcon= new JMenuItem("Icon");
 
 //Listener Icon
+		JMenuItem imIcon= new JMenuItem("Set Icon");
 		imIcon.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				JFileChooser jf= new JFileChooser();
-				ExtensionFileFilter filtro= new ExtensionFileFilter();
-				filtro.addExtension("jpg", false);
-				filtro.addExtension("gif",false);
-				filtro.addExtension("jpeg", false);
-				filtro.setDescription("Image File");
-				jf.setDialogTitle("Image");
-				jf.setApproveButtonText("Select");
-				jf.setFileFilter(filtro);
-				jf.setMultiSelectionEnabled(false);
-				jf.setCurrentDirectory(new File(".\\src\\graficaClient\\Images\\"));				
-				int x=jf.showOpenDialog(f);
-				if(x==JFileChooser.APPROVE_OPTION){
-				String name=jf.getSelectedFile().getName();
-				System.out.print(name);
-				//accountIcona=AutenticationGUI.impostaIcona(name); questo si applica alla fine
-				}
+				String name= RomeoGraphicsUtility.setIcon(f);
+				accountIcona=RomeoGraphicsUtility.impostaIcona(name,255,255);
+				icon.setIcon(accountIcona);
+				icon.repaint();
 			}
 		});
 		
-				JMenuItem options=new JMenuItem("Option");
-				JMenuItem close= new JMenuItem("Close");
+				JMenu options=new JMenu("Option");
+				JMenuItem account= new JMenuItem("Set Account");
+				JMenuItem lingua= new JMenuItem("Select Language");
+				options.add(lingua);
+				options.add(imIcon);
+				options.add(account);
 				
+//Listener account
+				account.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						Option op= new Option();
+					}
+				});
+							
 //Listener close
+				JMenuItem close= new JMenuItem("Close");
 				close.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
 						f.setVisible(false);
 					}
 				});
 			
+//Listener Connect
 		JMenuItem Connect=new JMenuItem("Connect");
 		Connect.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				// Qui va richiamata la funzione per connettersi 
 			}});
-		
-		JMenuItem Canc=new JMenuItem("Exit");
-		
+				
 //Listener canc
+		JMenuItem Canc=new JMenuItem("Exit");
 		Canc.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
 			}});
 		
-		
 		file.add(Connect);
 		file.add(new JSeparator());
-		file.add(imIcon);
 		file.add(options);
 		file.add(new JSeparator());
 		file.add(close);
 		file.add(Canc);
 		JMenu help= new JMenu("Help");
 		JMenuItem reademe= new JMenuItem("Read Me!!!");
+		
+//Listener ReadMe
+		reademe.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				RomeoGraphicsUtility.readMe();
+			}
+		});
+		
 		JMenuItem about= new JMenuItem("About");
+		
+//Listener about
+		about.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				RomeoGraphicsUtility.aboutProg();
+			}
+		});
+		
 		help.add(reademe);
 		help.add(about);
 		mb.add(file);
 		mb.add(help);
-		JLabel icon= new JLabel(AutenticationGUI.impostaIcona(Icon));
+		icon= new JLabel(RomeoGraphicsUtility.impostaIcona(Icon));
 		pbase.add(icon,BorderLayout.NORTH);				
 		Box vet=Box.createVerticalBox();
 		vet.add(Box.createVerticalStrut(80));	
@@ -204,17 +218,6 @@ public class AutenticationGUI {
 	 * Questo metodo ci ridimensiona le immagini scelte per l'account
 	 * in modo tale da non sfasare tutti gli altri componenti del frame
 	 */
-	private static ImageIcon impostaIcona(String x){
-		Image im,ima;
-		String image=".\\src\\graficaClient\\Images\\";
-		image=image+x;
-		ImageIcon icon= new ImageIcon(image);
-		im=icon.getImage();
-		ima=im.getScaledInstance(255,255,Image.SCALE_AREA_AVERAGING);
-		return new ImageIcon(ima);
-	}
-
-	private static void ImpostazioniDefaul(String lingua, String icona){}
 
 	@SuppressWarnings("serial")
 	public class AzioneBott extends AbstractAction{
@@ -225,72 +228,6 @@ public class AutenticationGUI {
 		public void actionPerformed(ActionEvent e) {}	
 	}
 	
-	private void MiniIcona(){
-		SystemTray st=null;
-		final TrayIcon ti;
-		try{
-		if(SystemTray.isSupported()==true){
-			st=SystemTray.getSystemTray();
-		Image imgg = Toolkit.getDefaultToolkit().getImage(".\\src\\graficaClient\\Images\\autenticatio_logo.png").getScaledInstance(15, 16,Image.SCALE_AREA_AVERAGING);
-		 ti= new TrayIcon(imgg);
-			final JPopupMenu pm= new JPopupMenu();
-			JMenuItem apri= new JMenuItem("Open");
-//Listener apri
-			apri.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e) {
-					f.setVisible(true);
-				}
-			});
-			
-			JMenuItem esci= new JMenuItem("Exit");
-//Listener esci
-			esci.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e) {
-					 f.setVisible(false);
-				     SystemTray.getSystemTray().remove(ti);
-				     System.exit(0);
-				}
-				});
-			
-			JMenuItem nascondi= new JMenuItem("Ghost");
-//Listener ghost
-			nascondi.addActionListener(new ActionListener(){
-				public void actionPerformed(ActionEvent e) {
-					 f.setVisible(false);
-				}
-				});
-			
-			pm.add(apri);
-			pm.add(nascondi);
-			pm.add(new JSeparator());
-			pm.add(esci);
-			st.add(ti);
-//Listener TrayIcon
-			ti.addMouseListener(new MouseListener(){
-					public void mouseClicked(MouseEvent e) {
-						if(e.getButton()==1){
-							if(f.isVisible()==true)
-								f.setVisible(false);
-							else
-								f.setVisible(true);
-						}else
-							if(e.getButton()==3){
-								pm.show(e.getComponent(), e.getX(), e.getY());
-						      	}
-					}
-					public void mouseEntered(MouseEvent e) {}
-					public void mouseExited(MouseEvent e) {}
-					public void mousePressed(MouseEvent e) {}
-					public void mouseReleased(MouseEvent e) {}
-					});
-			
-		}
-		}
-		catch (AWTException e1) {
-			System.err.print("Don't supported by OperatioSistem ");
-		}
-		}
-		
 	public static void main (String args[]){
 		new AutenticationGUI();
 	}
