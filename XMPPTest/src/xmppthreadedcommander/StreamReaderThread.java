@@ -57,7 +57,7 @@ public class StreamReaderThread implements Runnable {
 	}
 	
 	public void clearBuffer() {
-		for (int i = 0; i < this.bufsize && buffer[i] != '\0'; i++) buffer[i] = '\0';
+		for (int i = 0; i < this.bufsize; i++) buffer[i] = '\0';
 	}
 	
 	public String getChallenge() {
