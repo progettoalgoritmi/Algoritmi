@@ -1,0 +1,13 @@
+package xmppthreadedcommander;
+
+public class InputEndThread implements Runnable{
+	
+	public synchronized boolean isEnded(StreamReaderThread in) throws InterruptedException {
+		wait();
+		return in.isEnded();
+	}
+	
+	@Override
+	public void run() {}
+
+}

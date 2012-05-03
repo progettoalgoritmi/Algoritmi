@@ -1,0 +1,13 @@
+package xmppcommander;
+
+public class StreamReaderThread implements Runnable {
+
+	
+	
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,10 @@
+package xmppthreadedcommander;
+
+public class InputEndThread implements Runnable{
+	
+	
+	
+	@Override
+	public void run() {}
+
+}

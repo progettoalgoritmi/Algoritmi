@@ -1,0 +1,45 @@
+package xmppthreadedcommander;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class StreamReaderThread implements Runnable {
+
+	BufferedReader in = null;
+	char[] buffer = null;
+	int bufsize;
+	
+	public StreamReaderThread(BufferedReader in) {
+		this.in = in;
+		this.buffer = new char[10000];
+		this.bufsize = 10000;
+	}
+	
+	public StreamReaderThread(BufferedReader in, int size) {
+		this.in = in;
+		this.buffer = new char[size];
+		this.bufsize = size;
+	}
+	
+	
+	public char[] getBuffer() {
+		return this.buffer;
+	}
+	
+	@Override
+	public void run() {
+		boolean flag = true;
+		while(flag) {
+			char buff;
+			int i = 0;
+			try {
+				buff = (char) in.read();
+				buffer[i] = buff;
+				i = (i++)%bufsize;
+				if (buff != '>') System.out.print(buff);
+				else System.out.println(buff);
+				if (String.valueOf(this.buffer).contains("</stream:stream>")) flag = false;
+			} catch (IOException e) {}
+		}
+	}
+}

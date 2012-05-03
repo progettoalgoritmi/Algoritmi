@@ -1,0 +1,60 @@
+package xmppthreadedcommander;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class XMPPThreadedCommander {
+	
+	public static void main(String[] args) throws IOException, InterruptedException {
+		Socket socket = null;
+		PrintWriter out = null;
+		StreamReaderThread in = null;
+		BufferedReader buffIn = null;
+		String hostname = "localhost";
+		int port = 5222;
+
+		try {
+			socket = new Socket(hostname, port);
+			out = new PrintWriter(socket.getOutputStream());
+			buffIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+			in = new StreamReaderThread(buffIn);
+		} catch (UnknownHostException e) {
+			System.err.println("Host not found: " + hostname + ".");
+		} catch (IOException e) {
+			System.err.println("Couldn't get I/O for " + hostname + ".");
+		}
+
+		Thread reader = new Thread(in);
+		reader.start();
+
+		BufferedReader stdIn = new BufferedReader(new InputStreamReader(System.in));
+		String userInput;
+
+		boolean flag = true;
+		while (in.isEnded()) {
+			String[] arrayInput = new String[100];
+			int i = 0;
+
+			while (!(userInput = stdIn.readLine()).equalsIgnoreCase("send")) {
+				arrayInput[i] = userInput;
+				i++;
+			}
+
+			for (int j = 0; j < i; j++) {
+				out.write(arrayInput[j]);
+			}
+
+			out.flush();
+		}
+
+		out.close();
+		reader.interrupt();
+		buffIn.close();
+		stdIn.close();
+		socket.close();
+	}
+}

@@ -1,0 +1,5 @@
+package xmppthreadedcommander;
+
+public class InputEndThread {
+
+}

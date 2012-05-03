@@ -1,0 +1,10 @@
+package whiletest;
+
+public class Whiletest {
+	public static void main(String[] args) {
+		boolean what;
+		what = true;
+		while(what) {}
+		System.out.println("haha");
+	}
+}
