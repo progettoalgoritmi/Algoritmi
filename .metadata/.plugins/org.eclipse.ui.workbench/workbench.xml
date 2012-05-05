@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="17" version="2.0">
+<workbench progressCount="13" version="2.0">
 <workbenchAdvisor/>
-<window height="768" maximized="true" width="600" x="574" y="0">
+<window height="728" maximized="true" width="1024" x="38" y="-9">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
 </perspectiveBar>
-<coolbarLayout>
+<coolbarLayout locked="0">
 <coolItem id="group.file" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="122" y="22"/>
 <coolItem id="additions" itemType="typeGroupMarker"/>
@@ -17,17 +17,15 @@
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
-<coolItem id="org.eclipse.ui.browser.editor" itemType="typePlaceholder" x="-1" y="-1"/>
-<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="group.help" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
 </coolbarLayout>
-<page aggregateWorkingSetId="Aggregate for window 1333630836506" focus="true" label="Workspace - Java">
+<page aggregateWorkingSetId="Aggregate for window 1336246203257" focus="true" label="Workspace - Java">
 <editors>
 <editorArea activeWorkbook="DefaultEditorWorkbook">
 <info part="DefaultEditorWorkbook">
 <folder appearance="1" expanded="2">
-<<<<<<< HEAD
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
 <part id="0"/>
 <part id="1"/>
@@ -35,32 +33,23 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" partName="StreamReaderThread.java" path="C:/Algoritmi/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java" title="StreamReaderThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1467" selectionTopPixel="1275"/>
-</editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ServerCommander.java" partName="ServerCommander.java" path="C:/Algoritmi/XMPPTest/src/TestServer/ServerCommander.java" title="ServerCommander.java" tooltip="XMPPTest/src/TestServer/ServerCommander.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ServerCommander.java" partName="ServerCommander.java" path="C:/Algoritmi/XMPPTest/src/TestServer/ServerCommander.java" title="ServerCommander.java" tooltip="XMPPTest/src/TestServer/ServerCommander.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/TestServer/ServerCommander.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3074" selectionTopPixel="1225"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3575" selectionTopPixel="102"/>
 </editor>
-=======
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
-</folder>
-</info>
-</editorArea>
->>>>>>> 6621a47d5a609e4e8f2df400863ab916632d321c
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ClientGUI.java" partName="ClientGUI.java" path="C:/Algoritmi/XMPPTest/src/graficaClient/ClientGUI.java" title="ClientGUI.java" tooltip="XMPPTest/src/graficaClient/ClientGUI.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/XMPPTest/src/graficaClient/ClientGUI.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4711" selectionTopPixel="2346"/>
+</editor>
 </editors>
 <views>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
-<<<<<<< HEAD
-<expanded>&#x0A;<category IMemento.internal.id="Warnings (1 item)"/>
-=======
 <expanded>
-<category IMemento.internal.id="Errors (3 items)"/>
->>>>>>> 6621a47d5a609e4e8f2df400863ab916632d321c
+<category IMemento.internal.id="Warnings (5 items)"/>
+<category IMemento.internal.id="Errors"/>
 </expanded>
-<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
+<columnWidths org.eclipse.ui.ide.locationField="64" org.eclipse.ui.ide.markerType="94" org.eclipse.ui.ide.pathField="124" org.eclipse.ui.ide.resourceField="94" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
@@ -68,8 +57,11 @@
 <visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
 </viewState>
 </view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
 <view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
-<viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1333630836506">
+<viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="Aggregate for window 1336246203257">
 <customFilters userDefinedPatternsEnabled="false">
 <xmlDefinedFilters>
 <child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
@@ -97,17 +89,13 @@
 </customFilters>
 </viewState>
 </view>
-<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
-<viewState/>
-</view>
 <view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
 <viewState/>
 </view>
-<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration">
-<viewState/>
-</view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
 </views>
-<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspectives activePart="org.eclipse.jdt.ui.CompilationUnitEditor" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
 <perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
 <alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
@@ -157,10 +145,11 @@
 <perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.jdt.ui.JavadocView"/>
 <view id="org.eclipse.jdt.ui.SourceView"/>
 <view id="org.eclipse.ui.console.ConsoleView"/>
-<view id="org.eclipse.jdt.ui.PackageExplorer"/>
 <view id="org.eclipse.ui.views.ContentOutline"/>
 <fastViewBars/>
 <layout>
@@ -177,21 +166,20 @@
 </presentation>
 </folder>
 </info>
-<info folder="true" part="org.eclipse.ui.internal.ViewStack@e73783" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="left">
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="left">
 <folder appearance="2" expanded="2">
 <page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
 <page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
-<info part="org.eclipse.ui.editorss" ratio="0.23955871" ratioLeft="304" ratioRight="965" relationship="2" relative="left"/>
-<info folder="true" part="bottom" ratio="0.75981873" ratioLeft="503" ratioRight="159" relationship="4" relative="org.eclipse.ui.editorss">
+<info part="org.eclipse.ui.editorss" ratio="0.18376383" ratioLeft="249" ratioRight="1106" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.74958813" ratioLeft="455" ratioRight="152" relationship="4" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
 <page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
 <page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
-<page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
@@ -199,10 +187,11 @@
 <part id="0"/>
 <part id="1"/>
 <part id="2"/>
+<part id="3"/>
 </presentation>
 </folder>
 </info>
-<info folder="true" part="right" ratio="0.68731564" ratioLeft="233" ratioRight="106" relationship="2" relative="org.eclipse.ui.editorss">
+<info folder="true" part="right" ratio="0.7493333" ratioLeft="562" ratioRight="188" relationship="2" relative="org.eclipse.ui.editorss">
 <folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
@@ -217,175 +206,113 @@
 </perspective>
 </perspectives>
 <workingSets/>
-<<<<<<< HEAD
 <navigationHistory>
 <editors>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/TestServer/ServerCommander.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/graficaClient/AutenticationGUI.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppseqtls/XMPPCommander.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommandertls/StreamReaderThread.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppcommandertls/DummyTrustManager.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/graficaClient/AutenticationGUI.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/TestServer/ServerCommander.java"/>
-<editor factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" uri="file:/C:/Algoritmi/Esempio%20schat/src/examples/Chat.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/TestServer/ConnectionListener.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/TestServer/ServerCommander.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/XMPPTest/src/graficaClient/ClientGUI.java"/>
 </editors>
 <item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="957" y="0"/>
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="1">
-<position info="not_deleted" x="2713" y="0"/>
+<item historyLabel="XMPPCommander.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="957" y="0"/>
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ServerCommander.java" index="0">
+<position info="not_deleted" x="2182" y="0"/>
+</item>
+<item historyLabel="ServerCommander.java" index="0">
+<position info="not_deleted" x="3575" y="0"/>
+</item>
+<item historyLabel="XMPPCommander.java" index="1">
+<position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="XMPPCommander.java" index="2">
-<position info="not_deleted" x="696" y="0"/>
+<position/>
 </item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="957" y="0"/>
-</item>
-<item historyLabel="XMPPThreadedCommander.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="StreamReaderThread.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="XMPPThreadedCommander.java" index="3">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="StreamReaderThread.java" index="4">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="StreamReaderThread.java" index="4">
-<position info="not_deleted" x="1467" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="957" y="0"/>
-</item>
-<item historyLabel="XMPPThreadedCommander.java" index="3">
+<item historyLabel="XMPPCommander.java" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="ServerCommander.java" index="0">
-<position info="not_deleted" x="957" y="0"/>
+<position info="not_deleted" x="3575" y="0"/>
 </item>
-<item historyLabel="XMPPThreadedCommander.java" index="3">
+<item historyLabel="XMPPCommanderTLS.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
 <item historyLabel="StreamReaderThread.java" index="4">
-<position info="not_deleted" x="1467" y="0"/>
-</item>
-<item historyLabel="AutenticationGUI.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="AutenticationGUI.java" index="5">
-<position info="not_deleted" x="1890" y="0"/>
-</item>
-<item historyLabel="AutenticationGUI.java" index="5">
-<position info="not_deleted" x="1627" y="0"/>
-</item>
-<item historyLabel="AutenticationGUI.java" index="5">
-<position info="not_deleted" x="1380" y="0"/>
-</item>
-<item historyLabel="AutenticationGUI.java" index="5">
-<position info="not_deleted" x="5324" y="0"/>
-</item>
-<item historyLabel="AutenticationGUI.java" index="5">
-<position info="not_deleted" x="5042" y="0"/>
-</item>
-<item historyLabel="ServerCommander.java" index="6">
-<position info="not_deleted" x="957" y="0"/>
-</item>
-<item historyLabel="Chat.java" index="7">
+<item historyLabel="XMPPCommanderTLS.java" index="3">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="6">
-<position info="not_deleted" x="957" y="0"/>
-</item>
-<item historyLabel="ConnectionListener.java" index="8">
+<item historyLabel="StreamReaderThread.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="6">
-<position/>
-</item>
-<item historyLabel="ConnectionListener.java" index="8">
-<position/>
-</item>
-<item historyLabel="ServerCommander.java" index="6">
-<position/>
-</item>
-<item historyLabel="ConnectionListener.java" index="8">
-<position/>
-</item>
-<item historyLabel="ServerCommander.java" index="6">
-<position/>
-</item>
-<item historyLabel="ConnectionListener.java" index="8">
-<position/>
-</item>
-<item historyLabel="ServerCommander.java" index="6">
-<position/>
-</item>
-<item historyLabel="ConnectionListener.java" index="8">
-<position/>
-</item>
-<item historyLabel="ServerCommander.java" index="6">
-<position/>
-</item>
-<item historyLabel="ConnectionListener.java" index="8">
-<position/>
-</item>
-<item historyLabel="ServerCommander.java" index="6">
-<position/>
-</item>
-<item historyLabel="XMPPThreadedCommander.java" index="9">
+<item historyLabel="DummyTrustManager.java" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
+<item historyLabel="StreamReaderThread.java" index="4">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="364" y="0"/>
+<item historyLabel="XMPPThreadedCommander.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="644" y="0"/>
+<item historyLabel="StreamReaderThread.java" index="7">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="1309" y="0"/>
+<item historyLabel="StreamReaderThread.java" index="7">
+<position info="not_deleted" x="152" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="362" y="0"/>
+<item historyLabel="XMPPThreadedCommander.java" index="6">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="3260" y="0"/>
+<item historyLabel="ServerCommander.java" index="0">
+<position info="not_deleted" x="3575" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="3221" y="0"/>
+<item historyLabel="XMPPCommander.java" index="2">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="571" y="0"/>
+<item historyLabel="ServerCommander.java" index="0">
+<position info="not_deleted" x="3575" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="629" y="0"/>
+<item historyLabel="AutenticationGUI.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="962" y="1"/>
+<item historyLabel="AutenticationGUI.java" index="8">
+<position info="not_deleted" x="4299" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="966" y="0"/>
+<item historyLabel="ClientGUI.java" index="9">
+<position info="not_deleted" x="12831" y="0"/>
 </item>
-<item historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="1015" y="0"/>
+<item historyLabel="ClientGUI.java" index="9">
+<position info="not_deleted" x="8201" y="0"/>
 </item>
-<item active="true" historyLabel="ServerCommander.java" index="10">
-<position info="not_deleted" x="3072" y="0"/>
+<item historyLabel="AutenticationGUI.java" index="8">
+<position info="not_deleted" x="4299" y="0"/>
+</item>
+<item historyLabel="ServerCommander.java" index="0">
+<position info="not_deleted" x="3575" y="0"/>
+</item>
+<item historyLabel="ClientGUI.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="ClientGUI.java" index="9">
+<position/>
+</item>
+<item active="true" historyLabel="ClientGUI.java" index="9">
+<position info="not_deleted" x="7371" y="0"/>
 </item>
 </navigationHistory>
-=======
-<navigationHistory/>
->>>>>>> 6621a47d5a609e4e8f2df400863ab916632d321c
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
 </page>
 <workbenchWindowAdvisor/>
@@ -402,72 +329,35 @@
 </trimLayout>
 </window>
 <mruList>
-<<<<<<< HEAD
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ServerCommander.java" tooltip="XMPPTest/src/TestServer/ServerCommander.java">
-<persistable path="/XMPPTest/src/TestServer/ServerCommander.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ConnectionListener.java" tooltip="XMPPTest/src/TestServer/ConnectionListener.java">
-<persistable path="/XMPPTest/src/TestServer/ConnectionListener.java"/>
-</file>
-<file factoryID="org.eclipse.ui.ide.FileStoreEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Chat.java" tooltip="C:\Algoritmi\Esempio schat\src\examples\Chat.java">
-<persistable uri="file:/C:/Algoritmi/Esempio%20schat/src/examples/Chat.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ClientGUI.java" tooltip="XMPPTest/src/graficaClient/ClientGUI.java">
+<persistable path="/XMPPTest/src/graficaClient/ClientGUI.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="AutenticationGUI.java" tooltip="XMPPTest/src/graficaClient/AutenticationGUI.java">
 <persistable path="/XMPPTest/src/graficaClient/AutenticationGUI.java"/>
-=======
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Test.java" tooltip="XMPPTest/src/xmppcommandertlswithlock/Test.java">
-<persistable path="/XMPPTest/src/xmppcommandertlswithlock/Test.java"/>
->>>>>>> 6621a47d5a609e4e8f2df400863ab916632d321c
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommanderTLS.java" tooltip="XMPPTest/src/xmppcommandertlswithlock/XMPPCommanderTLS.java">
-<persistable path="/XMPPTest/src/xmppcommandertlswithlock/XMPPCommanderTLS.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppcommandertlswithlock/StreamReaderThread.java">
-<persistable path="/XMPPTest/src/xmppcommandertlswithlock/StreamReaderThread.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DummyTrustManager.java" tooltip="XMPPTest/src/xmppcommandertlswithlock/DummyTrustManager.java">
-<persistable path="/XMPPTest/src/xmppcommandertlswithlock/DummyTrustManager.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Lock.java" tooltip="XMPPTest/src/xmppcommandertlswithlock/Lock.java">
-<persistable path="/XMPPTest/src/xmppcommandertlswithlock/Lock.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppcommandertls/StreamReaderThread.java">
-<persistable path="/XMPPTest/src/xmppcommandertls/StreamReaderThread.java"/>
-</file>
-<<<<<<< HEAD
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppcommander/XMPPCommander.java">
 <persistable path="/XMPPTest/src/xmppcommander/XMPPCommander.java"/>
-=======
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DummyTrustManager.java" tooltip="XMPPTest/src/xmppcommandertls/DummyTrustManager.java">
-<persistable path="/XMPPTest/src/xmppcommandertls/DummyTrustManager.java"/>
->>>>>>> 6621a47d5a609e4e8f2df400863ab916632d321c
 </file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommanderTLS.java" tooltip="XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java">
-<persistable path="/XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SquirrelReader.java" tooltip="XMPPTest/src/flyingsquirrel/SquirrelReader.java">
-<persistable path="/XMPPTest/src/flyingsquirrel/SquirrelReader.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FlyingReader.java" tooltip="XMPPTest/src/flyingsquirrel/FlyingReader.java">
-<persistable path="/XMPPTest/src/flyingsquirrel/FlyingReader.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppseqtls/XMPPCommander.java">
-<persistable path="/XMPPTest/src/xmppseqtls/XMPPCommander.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DummyTrustManager.java" tooltip="XMPPTest/src/flyingsquirrel/DummyTrustManager.java">
-<persistable path="/XMPPTest/src/flyingsquirrel/DummyTrustManager.java"/>
-</file>
-<<<<<<< HEAD
-=======
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="FlyingSquirrel.java" tooltip="XMPPTest/src/flyingsquirrel/FlyingSquirrel.java">
-<persistable path="/XMPPTest/src/flyingsquirrel/FlyingSquirrel.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="PacketReader.java" tooltip="XMPPTest/src/org/jivesoftware/smack/PacketReader.java">
-<persistable path="/XMPPTest/src/org/jivesoftware/smack/PacketReader.java"/>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java">
+<persistable path="/XMPPTest/src/xmppthreadedcommander/StreamReaderThread.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPThreadedCommander.java" tooltip="XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java">
 <persistable path="/XMPPTest/src/xmppthreadedcommander/XMPPThreadedCommander.java"/>
 </file>
->>>>>>> 6621a47d5a609e4e8f2df400863ab916632d321c
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="DummyTrustManager.java" tooltip="XMPPTest/src/xmppcommandertls/DummyTrustManager.java">
+<persistable path="/XMPPTest/src/xmppcommandertls/DummyTrustManager.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StreamReaderThread.java" tooltip="XMPPTest/src/xmppcommandertls/StreamReaderThread.java">
+<persistable path="/XMPPTest/src/xmppcommandertls/StreamReaderThread.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommanderTLS.java" tooltip="XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java">
+<persistable path="/XMPPTest/src/xmppcommandertls/XMPPCommanderTLS.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="XMPPCommander.java" tooltip="XMPPTest/src/xmppseqtls/XMPPCommander.java">
+<persistable path="/XMPPTest/src/xmppseqtls/XMPPCommander.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ServerCommander.java" tooltip="XMPPTest/src/TestServer/ServerCommander.java">
+<persistable path="/XMPPTest/src/TestServer/ServerCommander.java"/>
+</file>
 </mruList>
 </workbench>

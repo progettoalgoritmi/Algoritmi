@@ -235,17 +235,20 @@ public class ClientGUI {
 		action.add(send1);
 		action.add(send2);		
 		sud= new JTabbedPane(JTabbedPane.TOP);
-		scrive= new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);
+		scrive= new TextArea(null,0,15,TextArea.SCROLLBARS_VERTICAL_ONLY);
 		scrive.setEditable(true);
 	
 //Listener scrivi
 		scrive.addKeyListener(new KeyListener(){
 			public void keyPressed(KeyEvent e) {
+				//ci va il keystroke per mandare a capo facendo shift-invio
+			}
+			public void keyReleased(KeyEvent e) {
 				if(e.getKeyCode()== KeyEvent.VK_ENTER){
 					invio();
 				}
+				scrive.requestFocus();
 			}
-			public void keyReleased(KeyEvent e) {}
 			public void keyTyped(KeyEvent e) {}
 			});
 
@@ -267,7 +270,6 @@ public class ClientGUI {
 		invio.addMouseListener(new MouseListener(){
 			public void mouseClicked(MouseEvent e) {
 				invio();
-				scrive.requestFocus();
 			}
 			public void mouseEntered(MouseEvent e) {}
 			public void mouseExited(MouseEvent e) {}

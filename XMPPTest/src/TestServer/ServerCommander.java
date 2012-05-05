@@ -1,6 +1,5 @@
 package TestServer;
-/*costruito interamente in base alle domande inviate dal client
- *abilmente scopiazzato di qua e di là*/
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
@@ -55,7 +54,7 @@ import java.util.*;
 		  		if(!(sc.hasMoreTokens()&&sc.nextToken().equals("<stream:stream to=")))throw new IllegalArgumentException();
 		  		sc.nextToken();//if(!sc.hasMoreTokens()||!sc.nextToken().matches("[/d]{0,3}[/.][/d]{0,3}[/.][/d]{0,3}"))throw new IllegalArgumentException();
 		  		if(!sc.hasMoreTokens()||!sc.nextToken().equals(" xmlns="))throw new IllegalArgumentException();
-		  		if(!sc.hasMoreTokens()||!sc.nextToken().matches("[j][a][b][b][e][r][:][^/d]*"))throw new IllegalArgumentException();
+		  		if(!sc.hasMoreTokens()||!sc.nextToken().matches("[j][a][b][b][e][r][:][^/d]*"))throw new IllegalArgumentException("Jabber: sintassi errata");
 		  		if(!sc.hasMoreTokens()||!sc.nextToken().equals(" xmlns:stream="))throw new IllegalArgumentException();
 		  		if(!sc.hasMoreTokens()||!sc.nextToken().equals("http://etherx.jabber.org/streams"))throw new IllegalArgumentException();
 		  		if(!sc.hasMoreTokens()||!sc.nextToken().equals(" version="))throw new IllegalArgumentException();
@@ -73,6 +72,11 @@ import java.util.*;
 					
 				} catch (Exception e) {}
 			}
+			try {
+				writer.close();
+				reader.close();
+				connection.close();
+			} catch (Exception e) {System.err.println("errore chiusura connessione");System.exit(-1);}
 		}
 		
 		@Override
@@ -84,7 +88,9 @@ import java.util.*;
 	  	
 		public static void main(String[] args) {
 			ConnectionListener cl=new ConnectionListener();
-		  	while(true);//test
+			System.out.print("Server ");
+			cl.start();
+			System.out.println("on");
 		  	/*writer.close();
 			reader.close();
 			connection.close();*/
