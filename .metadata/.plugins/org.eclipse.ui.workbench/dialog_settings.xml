@@ -4,8 +4,11 @@
 		<item value="8" key="DIALOG_Y_ORIGIN"/>
 		<item value="291" key="DIALOG_X_ORIGIN"/>
 	</section>
+<<<<<<< HEAD
 	<section name="NewWizardAction">
 	</section>
 	<section name="ImportExportAction">
 	</section>
+=======
+>>>>>>> 6621a47d5a609e4e8f2df400863ab916632d321c
 </section>

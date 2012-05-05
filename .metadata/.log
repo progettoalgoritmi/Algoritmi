@@ -469,6 +469,7 @@ Java Model Exception: Java Model Status [Timed out while retrieving the attached
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
 !SUBENTRY 1 org.eclipse.jdt.core 4 1012 2012-04-15 14:33:45.795
 !MESSAGE Timed out while retrieving the attached javadoc for PrintWriter [in PrintWriter.class [in java.io [in C:\Program Files\Java\jre6\lib\rt.jar]]] 
+<<<<<<< HEAD
 !SESSION 2012-05-03 09:41:41.063 -----------------------------------------------
 eclipse.buildId=M20110210-1200
 java.version=1.6.0_31
@@ -584,3 +585,63 @@ Java Model Exception: Java Model Status [Unknown javadoc format for UnknownHostE
 	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:166)
 !SUBENTRY 1 org.eclipse.jdt.core 4 1009 2012-05-03 11:50:42.830
 !MESSAGE Unknown javadoc format for UnknownHostException {key=Ljava/net/UnknownHostException;} [in UnknownHostException.class [in java.net [in C:\Program Files\Java\jre6\lib\rt.jar]]]
+=======
+!SESSION 2012-04-16 16:17:20.379 -----------------------------------------------
+eclipse.buildId=M20120208-0800
+java.version=1.6.0_29
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=it_IT
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY org.eclipse.debug.core 4 125 2012-04-16 16:22:47.893
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Chiusura della pipe in corso..
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(Unknown Source)
+	at java.io.BufferedOutputStream.flushBuffer(Unknown Source)
+	at java.io.BufferedOutputStream.flush(Unknown Source)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.writeNext(InputStreamMonitor.java:147)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.write(InputStreamMonitor.java:124)
+	at org.eclipse.debug.internal.core.InputStreamMonitor$1.run(InputStreamMonitor.java:99)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.debug.core 4 125 2012-04-16 16:22:50.873
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Chiusura della pipe in corso..
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(Unknown Source)
+	at java.io.BufferedOutputStream.flushBuffer(Unknown Source)
+	at java.io.BufferedOutputStream.flush(Unknown Source)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.writeNext(InputStreamMonitor.java:147)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.write(InputStreamMonitor.java:124)
+	at org.eclipse.debug.internal.core.InputStreamMonitor$1.run(InputStreamMonitor.java:99)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.debug.core 4 125 2012-04-16 16:22:51.637
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Chiusura della pipe in corso..
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(Unknown Source)
+	at java.io.BufferedOutputStream.flushBuffer(Unknown Source)
+	at java.io.BufferedOutputStream.flush(Unknown Source)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.writeNext(InputStreamMonitor.java:147)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.write(InputStreamMonitor.java:124)
+	at org.eclipse.debug.internal.core.InputStreamMonitor$1.run(InputStreamMonitor.java:99)
+	at java.lang.Thread.run(Unknown Source)
+
+!ENTRY org.eclipse.debug.core 4 125 2012-04-16 16:22:52.386
+!MESSAGE Error logged from Debug Core: 
+!STACK 0
+java.io.IOException: Chiusura della pipe in corso..
+	at java.io.FileOutputStream.writeBytes(Native Method)
+	at java.io.FileOutputStream.write(Unknown Source)
+	at java.io.BufferedOutputStream.flushBuffer(Unknown Source)
+	at java.io.BufferedOutputStream.flush(Unknown Source)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.writeNext(InputStreamMonitor.java:147)
+	at org.eclipse.debug.internal.core.InputStreamMonitor.write(InputStreamMonitor.java:124)
+	at org.eclipse.debug.internal.core.InputStreamMonitor$1.run(InputStreamMonitor.java:99)
+	at java.lang.Thread.run(Unknown Source)
+>>>>>>> 6621a47d5a609e4e8f2df400863ab916632d321c
