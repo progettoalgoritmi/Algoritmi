@@ -5,6 +5,12 @@ public class Lock {
 	private static boolean hardLock = false;
 	private static boolean terminate = false;
 	
+	public Lock(){
+		softLock = false;
+		hardLock = false;
+		terminate = false;
+	}
+	
 	public static synchronized void softUnlock() {
 		softLock = false;
 	}

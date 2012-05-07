@@ -57,19 +57,23 @@ public class XMPPCommanderTLS {
 		out.println(xmlver);
 		out.flush();
 		Lock.unlock();
+		System.out.println("xmlver");
+		Thread.sleep(100);//TODO: Il reader del server non riesce a smistarli altrimenti
 		
 		while(Lock.getLockStatus());
 		Lock.lock();
 		out.println(handshake);
 		out.flush();
 		Lock.unlock();
+		System.out.println("hand");
+		Thread.sleep(100);
 		
 		while(Lock.getLockStatus());
 		Lock.lock();
 		out.println(starttls);
 		out.flush();
 		Lock.unlock();
-		
+
 		Thread.sleep(250); //Sleep 'til reader finishes... TODO: must be fixed.
 		
 		SSLContext sslctxt = SSLContext.getInstance("TLS");
