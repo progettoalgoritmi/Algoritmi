@@ -214,7 +214,7 @@ public class Connection {
 		String showme = "<presence xmlns='jabber:client' from='" + c.getUsername() + "@" + c.getHostname() +
 				"'><show>chat</show><status>Up and running.</status></presence>";
 		c.send(showme);
-		Message.sendMessage(c, "antonio", "ecco che va...");
+		Message.sendMessage(c, "antonio", "hahahah!");
 		c.closeConnection();
 	}
 }
