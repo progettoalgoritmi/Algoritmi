@@ -1,9 +1,12 @@
 package graficaClient;
 
+import graficaClient.ClientGUI.Lingua;
+
 import java.awt.*;
 import java.awt.event.*;
 
 import javax.swing.*;
+
 import ClasseMix.*;
 
 public class AutenticationGUI {
@@ -12,12 +15,14 @@ public class AutenticationGUI {
 	TextField username;
 	JPasswordField pw;
 	String Icon="480192_640px.jpg";
+	String logo="autenticatio_logo.png";
 	ImageIcon accountIcona;
 	JLabel icon;
+	Lingua ln;
 	
 	public AutenticationGUI(){
 		f=new JFrame();
-		f=RomeoGraphicsUtility.miniIcona(f);
+		RomeoGraphicsUtility.miniIcona(f, logo);
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(350,550);
 		Dimension x= Toolkit.getDefaultToolkit().getScreenSize();
@@ -48,9 +53,10 @@ public class AutenticationGUI {
 		pw= new JPasswordField();
 		pw.setMaximumSize(new Dimension(180,20));
 		pw.addKeyListener(new KeyListener(){
+			@SuppressWarnings("deprecation")
 			public void keyPressed(KeyEvent e){
 				if(e.getKeyCode()==KeyEvent.VK_ENTER) System.out.println("Pressed Enter");
-				//Qui poi va la parte di connessione
+				RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon);
 			}
 			public void keyReleased(KeyEvent arg0){}
 			public void keyTyped(KeyEvent arg0){}
@@ -75,20 +81,9 @@ public class AutenticationGUI {
 //Connect Listener
 		JButton ok= new JButton(connect);
 		ok.addMouseListener(new MouseListener(){
+			@SuppressWarnings("deprecation")
 			public void mouseClicked(MouseEvent e) {
-				/*Guarda nel database se sono presenti user e pw:
-				 * in caso affermativo genera un oggetto ClientGui 
-				 * in caso negativo si riceve un messaggio di errore (possibilmente non con alert di java che fa cagare) dove si chiede di reinserire user e pw 
-				 * connection(che non so in che classe sta) in caso di autenticazione fallita solleva una AuthenticationException
-				 errorAuth.setVisible(false);
-				 Un'altra cosa da fare è quella di settare a Icon il nome dell'icona che ha impostato l'utente
-				 nell'ultima connessione perchè sennò riaprendo gli comparirà sempre il logo di defaul
-				 try{
-				 		connection(username.toString(),pw.toString());
-				 }catch(AuthenticationException e){
-				  		errorAuth.setVisible(true);
-				 }
-				 */
+				RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon);
 			}
 			
 			public void mouseEntered(MouseEvent e){}
@@ -105,8 +100,9 @@ public class AutenticationGUI {
 		JMenuItem imIcon= new JMenuItem("Set Icon");
 		imIcon.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				String name= RomeoGraphicsUtility.setIcon(f);
+				String name= RomeoGraphicsUtility.setIcon(f, Icon);
 				accountIcona=RomeoGraphicsUtility.impostaIcona(name,255,255);
+				Icon=name;
 				icon.setIcon(accountIcona);
 				icon.repaint();
 			}
@@ -114,17 +110,78 @@ public class AutenticationGUI {
 		
 				JMenu options=new JMenu("Option");
 				JMenuItem account= new JMenuItem("Set Account");
-				JMenuItem lingua= new JMenuItem("Select Language");
-				options.add(lingua);
-				options.add(imIcon);
-				options.add(account);
 				
 //Listener account
+				JMenu lingua= new JMenu("Select Language");
 				account.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
 						Option op= new Option();
 					}
 				});
+				
+//Listener Italiano
+				JMenuItem ita= new JMenuItem("Italiano");
+				ita.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e){
+						Lingua x= Lingua.Italiano;
+						RomeoGraphicsUtility.impostaLingua(x);
+					}
+				});
+				
+//Listener inglese
+				JMenuItem ing= new JMenuItem("English");
+				ing.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						Lingua x= Lingua.Inglese;
+						RomeoGraphicsUtility.impostaLingua(x);
+					}
+				});
+				
+//Listener francese
+				JMenuItem fra= new JMenuItem("Francais");
+				fra.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						Lingua x= Lingua.Francese;
+						RomeoGraphicsUtility.impostaLingua(x);
+					}
+				});
+
+//Listener Spagnolo
+				JMenuItem spa= new JMenuItem("Espanol");
+				spa.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						Lingua x= Lingua.Spagnolo;
+						RomeoGraphicsUtility.impostaLingua(x);
+					}
+				});
+				
+//Listener tedesco
+				JMenuItem ger= new JMenuItem("Deutsch");
+				ger.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						Lingua x= Lingua.Tedesco;
+						RomeoGraphicsUtility.impostaLingua(x);
+					}
+				});
+				
+//Listener calabrese
+				JMenuItem cal= new JMenuItem("Calabrese");
+				cal.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						Lingua x= Lingua.Calabrese;
+						RomeoGraphicsUtility.impostaLingua(x);
+					}
+				});
+				
+				lingua.add(ita);
+				lingua.add(ing);
+				lingua.add(fra);
+				lingua.add(spa);
+				lingua.add(ger);
+				lingua.add(cal);
+				options.add(lingua);
+				options.add(imIcon);
+				options.add(account);
 							
 //Listener close
 				JMenuItem close= new JMenuItem("Close");
@@ -137,8 +194,9 @@ public class AutenticationGUI {
 //Listener Connect
 		JMenuItem Connect=new JMenuItem("Connect");
 		Connect.addActionListener(new ActionListener(){
+			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e){
-				// Qui va richiamata la funzione per connettersi 
+				RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon);
 			}});
 				
 //Listener canc
@@ -155,18 +213,17 @@ public class AutenticationGUI {
 		file.add(close);
 		file.add(Canc);
 		JMenu help= new JMenu("Help");
-		JMenuItem reademe= new JMenuItem("Read Me!!!");
 		
 //Listener ReadMe
+		JMenuItem reademe= new JMenuItem("Read Me!!!");
 		reademe.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				RomeoGraphicsUtility.readMe();
 			}
 		});
 		
-		JMenuItem about= new JMenuItem("About");
-		
 //Listener about
+		JMenuItem about= new JMenuItem("About");
 		about.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				RomeoGraphicsUtility.aboutProg();
@@ -213,11 +270,6 @@ public class AutenticationGUI {
 		f.add(pbase);
 		f.setVisible(true);
 	}
-	
-	/**
-	 * Questo metodo ci ridimensiona le immagini scelte per l'account
-	 * in modo tale da non sfasare tutti gli altri componenti del frame
-	 */
 
 	@SuppressWarnings("serial")
 	public class AzioneBott extends AbstractAction{
