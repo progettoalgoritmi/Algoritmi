@@ -44,6 +44,7 @@ public class AutenticationGUI {
 				apri.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
 						f.setVisible(true);
+						pm.setVisible(false);
 					}
 				});
 				
@@ -64,6 +65,7 @@ public class AutenticationGUI {
 				nascondi.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
 						 f.setVisible(false);
+						 pm.setVisible(false);
 					}
 					});
 				

@@ -11,11 +11,13 @@ import Utility.*;
 import FlyingSquirrel_imp.*;
 
 public class ClientGUI {
+	private Color  mainColor= new Color(0,0,0);
+	Font x;
 	JFrame f;
 	Integer we;
 	int count;
 	Font font1;
-	TextArea legge;
+	JTextArea legge;
 	String logo="20133476748_8pzCx.jpg";
 	String s="images.jpg";
 	String t="download.jpg";
@@ -65,6 +67,7 @@ public class ClientGUI {
 				apri.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
 						f.setVisible(true);
+						pm.setVisible(false);
 					}
 				});
 				
@@ -85,6 +88,7 @@ public class ClientGUI {
 				nascondi.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
 						 f.setVisible(false);
+						 pm.setVisible(false);
 					}
 					});
 				
@@ -357,6 +361,8 @@ public class ClientGUI {
 		scrive.addKeyListener(new KeyListener(){
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode()== KeyEvent.VK_ENTER){
+					e.consume();
+					//Aggiungere keyStroke a shift+invio per andare a capo senza inviare la stringa
 					RomeoGraphicsUtility.invio(scrive, legge);
 				}
 			}
@@ -375,8 +381,7 @@ public class ClientGUI {
 		JPanel panelfont= new JPanel();
 		Disegno2D panelwrite= new Disegno2D();
 		risultato=panelwrite.getPanelDraw();
-		
-		
+		panelfont=setFont();
 		
 		
 		JPanel panelrar= new JPanel();
@@ -463,6 +468,7 @@ public class ClientGUI {
 			public void actionPerformed(ActionEvent e){
 				String x= jtf.getText();
 				RomeoGraphicsUtility.invioDati(x);
+				
 			}
 		});
 		
@@ -640,9 +646,10 @@ public class ClientGUI {
 						Box oz= Box.createHorizontalBox();
 						JButton jbc= new JButton("Close");
 						Box vet1= Box.createVerticalBox();
-						legge= new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);
+						legge= new JTextArea();
+						JScrollPane scp= new JScrollPane(legge);
 						legge.setEditable(false);
-						oz.add(legge);
+						oz.add(scp);
 						oz.add(Box.createHorizontalStrut(10));
 						JLabel icon= new JLabel(RomeoGraphicsUtility.impostaIcona(iconatipo, 145, 145));
 						vet1.add(jbc);
@@ -705,9 +712,10 @@ public class ClientGUI {
 						Box oz= Box.createHorizontalBox();
 						JButton jbc= new JButton("Close");
 						Box vet1= Box.createVerticalBox();
-						legge= new TextArea(null,0,0,TextArea.SCROLLBARS_VERTICAL_ONLY);
+						legge= new JTextArea();
+						JScrollPane scp= new JScrollPane(legge);
 						legge.setEditable(false);
-						oz.add(legge);
+						oz.add(scp);
 						oz.add(Box.createHorizontalStrut(10));
 						JLabel icon= new JLabel(RomeoGraphicsUtility.impostaIcona(iconatipo, 145, 145));
 						vet1.add(jbc);
@@ -775,7 +783,102 @@ public class ClientGUI {
 		vet.add(oz2);
 		pl.add(vet);
 		pl.setVisible(true);
-	}	
+	}
+	
+	public JPanel setFont(){
+		JLabel titolo= new JLabel("Select Type Font");
+		JPanel panel= new JPanel();
+		Box vet= Box.createVerticalBox();
+		Box or= Box.createHorizontalBox();
+		Box or1= Box.createHorizontalBox();
+		Choice testo= new Choice();
+		Choice colore= new Choice();
+		Choice dimensione= new Choice();
+		JRadioButton grassetto= new JRadioButton();
+		JRadioButton corsivo= new JRadioButton();
+		JRadioButton sottolineato= new JRadioButton();
+		JButton ok= new JButton("Ok");
+		JButton ko= new JButton("Canc");
+		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		String[] fonts = ge.getAvailableFontFamilyNames();
+		for (String font : fonts) {
+			testo.addItem(font);
+		}
+		
+		colore.addItem("Black");
+	    colore.addItem("Blue");
+	    colore.addItem("Green");
+	    colore.addItem("Red");
+	    colore.addItem("Purple");
+	    colore.addItem("Orange");
+	    colore.addItem("Pink");
+	    colore.addItem("Gray");
+	    colore.addItem("Yellow");
+	    dimensione.addItem("6");
+	    dimensione.addItem("8");
+	    dimensione.addItem("10");
+	    dimensione.addItem("12");
+	    dimensione.addItem("14");
+	    dimensione.addItem("16");
+	    dimensione.addItem("18");
+	    dimensione.addItem("20");
+	    dimensione.addItem("36");
+	    dimensione.addItem("Insert");
+
+	    colore.addItemListener(new ItemListener(){
+			public void itemStateChanged(ItemEvent e) {
+				if (e.getItem()=="Black")
+				       mainColor = Color.black;
+
+				    if (e.getItem()=="Blue")
+				    	mainColor = Color.blue;
+
+				    if (e.getItem()=="Green")
+				    	mainColor = Color.green;
+
+				    if (e.getItem()=="Red")
+				    	mainColor = Color.red;
+
+				    if (e.getItem()=="Purple")
+				    	mainColor = Color.magenta;
+
+				    if (e.getItem()=="Orange")
+				    	mainColor = Color.orange;
+
+				    if (e.getItem()=="Pink")
+				    	mainColor = Color.pink;
+
+				    if (e.getItem()=="Gray")
+				    	mainColor = Color.gray;
+
+				    if (e.getItem()=="Yellow")
+				    	mainColor = Color.yellow;
+			}
+	    	
+	    });
+		vet.add(titolo);
+		vet.add(Box.createVerticalStrut(50));
+		or.add(testo);
+		or.add(Box.createHorizontalStrut(10));
+		or.add(colore);
+		or.add(Box.createHorizontalStrut(10));
+		or.add(dimensione);
+		or.add(Box.createHorizontalStrut(20));
+		or.add(grassetto);
+		or.add(Box.createHorizontalStrut(10));
+		or.add(corsivo);
+		or.add(Box.createHorizontalStrut(10));
+		or.add(sottolineato);
+		vet.add(or);
+		vet.add(Box.createVerticalStrut(20));
+		or1.add(ok);
+		or1.add(Box.createHorizontalStrut(10));
+		or1.add(ko);
+		vet.add(or1);
+		panel.add(vet);
+		
+		return panel;
+	}
 	
 public static void main(String args[]){
 	ClientGUI p=new ClientGUI(null, null, null);

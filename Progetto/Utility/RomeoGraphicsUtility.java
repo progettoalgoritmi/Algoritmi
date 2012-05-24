@@ -240,7 +240,7 @@ public class RomeoGraphicsUtility {
 		return null;
 	  }
 	
-	public static void invio(TextArea scrive, TextArea legge){
+	public static void invio(TextArea scrive, JTextArea legge){
 		String x=scrive.getText();
 		if(x.equals("\n"))
 			return;
