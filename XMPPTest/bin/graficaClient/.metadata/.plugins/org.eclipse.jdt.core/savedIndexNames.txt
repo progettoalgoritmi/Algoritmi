@@ -1,1 +1,0 @@
-INDEX VERSION 1.126+C:\Users\Mario 46\Algoritmi\XMPPTest\src\graficaClient\.metadata\.plugins\org.eclipse.jdt.core
