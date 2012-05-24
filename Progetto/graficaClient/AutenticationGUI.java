@@ -4,25 +4,100 @@ import graficaClient.ClientGUI.Lingua;
 
 import java.awt.*;
 import java.awt.event.*;
-
+import java.util.ArrayList;
 import javax.swing.*;
 
-import ClasseMix.*;
+import Utility.*;
+
 
 public class AutenticationGUI {
 	
 	JFrame f=null;
 	TextField username;
+	SystemTray st;
+	TrayIcon ti;
 	JPasswordField pw;
 	String Icon="480192_640px.jpg";
 	String logo="autenticatio_logo.png";
 	ImageIcon accountIcona;
 	JLabel icon;
 	Lingua ln;
+	String hostname=null;
+	String errore;
+	boolean withTLS;
+	int port=-1;
+	int auth_type=-1;
+	ArrayList<Character> buffer=null;
+	JLabel errorAuth;
 	
 	public AutenticationGUI(){
 		f=new JFrame();
-		RomeoGraphicsUtility.miniIcona(f, logo);
+		try{
+			if(SystemTray.isSupported()==true){
+				st=SystemTray.getSystemTray();
+			Image imgg = Toolkit.getDefaultToolkit().getImage(".\\src\\graficaClient\\Images\\"+logo).getScaledInstance(15, 16,Image.SCALE_AREA_AVERAGING);
+			 ti= new TrayIcon(imgg);
+				final JPopupMenu pm= new JPopupMenu();
+				JMenuItem apri= new JMenuItem("Open");
+		
+//Listener apri
+				apri.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						f.setVisible(true);
+					}
+				});
+				
+				JMenuItem esci= new JMenuItem("Exit");
+				
+//Listener esci
+				esci.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						 f.setVisible(false);
+					     SystemTray.getSystemTray().remove(ti);
+					     System.exit(0);
+					}
+					});
+				
+				JMenuItem nascondi= new JMenuItem("Ghost");
+				
+//Listener nascondi
+				nascondi.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent e) {
+						 f.setVisible(false);
+					}
+					});
+				
+				pm.add(apri);
+				pm.add(nascondi);
+				pm.add(new JSeparator());
+				pm.add(esci);
+				st.add(ti);
+				
+//Listener TrayIcon
+				ti.addMouseListener(new MouseListener(){
+						public void mouseClicked(MouseEvent e) {
+							if(e.getButton()==1){
+								if(f.isVisible()==true)
+									f.setVisible(false);
+								else
+									f.setVisible(true);
+							}else
+								if(e.getButton()==3){
+									pm.show(e.getComponent(), e.getX(), e.getY());
+							      	}
+						}
+						public void mouseEntered(MouseEvent e) {}
+						public void mouseExited(MouseEvent e) {}
+						public void mousePressed(MouseEvent e) {}
+						public void mouseReleased(MouseEvent e) {}
+						});
+				
+			}
+			}
+			catch (AWTException e1) {
+				System.err.print("Don't supported by OperatioSistem ");
+			}	
+		
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.setSize(350,550);
 		Dimension x= Toolkit.getDefaultToolkit().getScreenSize();
@@ -33,9 +108,9 @@ public class AutenticationGUI {
 		pbase.setLayout(new BorderLayout());
 		JLabel user= new JLabel("Username");
 		JLabel lpw= new JLabel("Password");
-		JLabel errorAuth= new JLabel("Username o Password errati. Riprova");
+		errorAuth= new JLabel();
 		errorAuth.setForeground(Color.RED);
-		errorAuth.setVisible(false);
+		errorAuth.setVisible(true);
 		
 //Username Listener
 		username= new TextField();
@@ -53,10 +128,21 @@ public class AutenticationGUI {
 		pw= new JPasswordField();
 		pw.setMaximumSize(new Dimension(180,20));
 		pw.addKeyListener(new KeyListener(){
-			@SuppressWarnings("deprecation")
 			public void keyPressed(KeyEvent e){
-				if(e.getKeyCode()==KeyEvent.VK_ENTER) System.out.println("Pressed Enter");
-				RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon);
+				if(e.getKeyCode()==KeyEvent.VK_ENTER)
+					try{
+						errore=RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon, hostname, port, withTLS, auth_type, buffer);
+					}catch (Exception e1){
+						errore="Settaggi o Login Errati";
+						errorAuth.setText(errore);
+					}
+				if(errore=="ok"){
+					f.setVisible(false);
+					st.remove(ti);
+					
+				}else{
+					errorAuth.setText(errore);
+				}
 			}
 			public void keyReleased(KeyEvent arg0){}
 			public void keyTyped(KeyEvent arg0){}
@@ -83,7 +169,18 @@ public class AutenticationGUI {
 		ok.addMouseListener(new MouseListener(){
 			@SuppressWarnings("deprecation")
 			public void mouseClicked(MouseEvent e) {
-				RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon);
+				try{
+					errore=RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon, hostname, port, withTLS, auth_type, buffer);
+				}catch (Exception e1){
+					errore="Settaggi o Login Errati";
+					errorAuth.setText(errore);
+				}
+			if(errore=="ok"){
+				f.setVisible(false);
+				st.remove(ti);
+			}else{
+				errorAuth.setText(errore);
+			}
 			}
 			
 			public void mouseEntered(MouseEvent e){}
@@ -108,14 +205,15 @@ public class AutenticationGUI {
 			}
 		});
 		
-				JMenu options=new JMenu("Option");
-				JMenuItem account= new JMenuItem("Set Account");
+				JMenu options=new JMenu("Options");
+				JMenuItem account= new JMenuItem("Options");
 				
 //Listener account
 				JMenu lingua= new JMenu("Select Language");
 				account.addActionListener(new ActionListener(){
 					public void actionPerformed(ActionEvent e) {
-						Option op= new Option();
+						Point kk= f.getLocation();
+						Option op= new Option(kk.x, kk.y);
 					}
 				});
 				
@@ -194,9 +292,19 @@ public class AutenticationGUI {
 //Listener Connect
 		JMenuItem Connect=new JMenuItem("Connect");
 		Connect.addActionListener(new ActionListener(){
-			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent e){
-				RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon);
+				try{
+					errore=RomeoGraphicsUtility.connetti(username.getText(), pw.getText(), ln, Icon, hostname, port, withTLS, auth_type, buffer);
+				}catch (Exception e1){
+					errore="Settaggi o Login Errati";
+					errorAuth.setText(errore);
+				}
+			if(errore=="ok"){
+				f.setVisible(false);
+				st.remove(ti);
+			}else{
+				errorAuth.setText(errore);
+			}
 			}});
 				
 //Listener canc
