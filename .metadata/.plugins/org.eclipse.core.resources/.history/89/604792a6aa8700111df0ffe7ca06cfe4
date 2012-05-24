@@ -1,5 +1,0 @@
-package TestServer;
-
-public interface Server {
-//TODO dopo vedo
-}

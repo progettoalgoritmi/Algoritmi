@@ -1,5 +1,0 @@
-package xmppcommandertls;
-
-public class DummyTrustManager {
-
-}

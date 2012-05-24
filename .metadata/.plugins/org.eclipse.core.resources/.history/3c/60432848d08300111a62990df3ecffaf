@@ -1,8 +1,0 @@
-package xmppthreadedcommander;
-
-public class XMPPThreadedCommander {
-
-	public static void main(String[] args) {
-		
-	}
-}
