@@ -108,13 +108,13 @@ public class StreamReaderThread implements Runnable {
 				if (buff == 65535) break;
 				else if (buff != '>') {
 					if (newLine) {
-						//System.out.print("Server: ");
+						//System.err.print("Server: ");
 						newLine = false;
 					}
-					//System.out.print(buff);
+					//System.err.print(buff);
 				}
 				else {
-					//System.out.println(buff);
+					//System.err.println(buff);
 					while(lock.getLockStatus());
 					lock.lock();
 					Parser p = new Parser(buffer, stack, toBeProcessed);

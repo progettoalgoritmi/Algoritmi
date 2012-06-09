@@ -1,4 +1,4 @@
-package flyingSquirrel3;
+package ExplosiveSheep;
 
 import java.util.Collection;
 import java.util.HashMap;

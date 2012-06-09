@@ -13,7 +13,7 @@ public class ConnectionRunner extends Thread {
 		private HashMap<Integer,ConnectionRunner> connectionList;
 		private Socket connection;
 		private StreamReaderThread sr;
-		private ArrayList<Character> buff;
+		private char[] buff;
 		private BufferedReader reader;
 		private PrintWriter writer;
 		private Lock warlock = new Lock();
@@ -30,9 +30,9 @@ public class ConnectionRunner extends Thread {
 		public void run() {
 			//inizializzazione
 			try {
-				buff=new ArrayList<Character>(1000);
+				buff= new char[1000];
 				reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-				srt=new StreamReaderThread(reader,buff,this.hashCode(),console,warlock);
+				srt=new StreamReaderThread(reader, buff, this.hashCode(), console, warlock);
 				srt.start();
 				writer = new PrintWriter(connection.getOutputStream());
 			} catch (Exception e) {
@@ -40,19 +40,25 @@ public class ConnectionRunner extends Thread {
 			}
 			console.println("no exception");
 			//inizio autenticazione
-			
-						try {
-							Thread.sleep(3000);
-						} catch (InterruptedException e) {
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-			
-			srt.clearBuffer();
-			buff = srt.getBuffer();
-			for(int i=0;i<buff.size();i++)System.out.print((srt.getBuffer().get(i)));
-			System.out.println("Stampo cazzi.");
-			System.out.println();
+			while(srt.getNotProcessedEvents().isEmpty());
+			XMLNode tag = srt.getNotProcessedEvents().pop();
+			if (!tag.getRoot().equals("stream:stream") && !tag.getRoot().equals("?xml")) throw new RuntimeException("Invalid!");
+			if (tag.getRoot().equals("?xml")) 
+				if (!tag.getAttribute("version").equals("1.0")) throw new RuntimeException("Unsupported xml version.");
+			while(srt.getNotProcessedEvents().isEmpty());
+			tag = srt.getNotProcessedEvents().pop();
+			if (!tag.getRoot().equals("stream:stream")) throw new RuntimeException("Not an xmpp stream.");
+			String from = tag.getAttribute("to");
+			tag.removeAttribute("to");
+			tag.addAttribute("from", from);
+			tag.addAttribute("id", String.valueOf(this.hashCode()));
+			String taggie = tag.toString();
+			taggie = taggie.substring(0, taggie.indexOf('>')) + '>';
+			try {
+				send(taggie);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			//String xmlver=buffer
 			int authType=1;//0=md5, 1=plain
 			if(authType==0)console.println("MD5");else console.println("plain");
@@ -126,11 +132,8 @@ public class ConnectionRunner extends Thread {
 		}
 		
 		public void send(String command) throws InterruptedException {
-			warlock.waitOnLocks(100);
-			warlock.hardLock();
 			char[] c = command.toCharArray();
 			for (int i = 0; i < c.length; i++) writer.write(c[i]);
 			writer.flush();
-			warlock.hardUnlock();
 		}
 }//Connection Runner END

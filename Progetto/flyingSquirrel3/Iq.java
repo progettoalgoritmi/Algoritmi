@@ -1,17 +1,17 @@
 package flyingSquirrel3;
 
+import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Iq {
 	
 	private Connection c;
-	private LinkedList<String>[] roster = new LinkedList[4];
-	private boolean rosterGot;
-	private int j;
+	private LinkedList<XMLNode> roster;
 	
 	public Iq(Connection c) {
 		this.c = c;
-		this.rosterGot = false;
 	}
 	
 	public void setRoster(String username, String hostname, String name, String group) 
@@ -24,15 +24,13 @@ public class Iq {
 		c.send(request);
 	}
 	
-	public LinkedList<String>[] rosterRequest() throws InterruptedException {
+	public LinkedList<XMLNode> rosterRequest() throws InterruptedException {
 		String id = String.valueOf(c.hashCode()*23 + 1);
 		String request = "<iq from='" + c.getUsername() + "@" + 
 						c.getHostname() + c.getResource() + "' id='" + id + "' type='get'>" +
 				"<query xmlns='jabber:iq:roster'/></iq>";
-		j = c.getStreamBufferCounter();
 		c.send(request);
-		while(!rosterGot) roster = takeRoster();
-		rosterGot = false;
+		while((roster = takeRoster()) == null);
 		return roster;
 	}
 	
@@ -46,59 +44,32 @@ public class Iq {
 		c.send(request);
 	}
 	
-	private LinkedList<String>[] takeRoster() {
+	private LinkedList<XMLNode> takeRoster() {
 		while(c.getLock().getLockStatus());
 		c.getLock().lock();
-		LinkedList<String>[] q = new LinkedList[4];
-		for(int i = 0; i < 4; i++) {
-			q[i] = new LinkedList<String>();
-		}
-		char[] ch = c.getBuffer();
-		int i;
-		if ((i = String.valueOf(ch).indexOf("<iq", j)) != -1) {
-			if(String.valueOf(ch).indexOf("/>", i) != -1) {
-				rosterGot = true;
-				c.getLock().unlock();
-				return q;
+		CopyOnWriteArrayList<XMLNode> cowal = new CopyOnWriteArrayList<XMLNode>(c.getNotProcessedEvents());
+		Iterator<XMLNode> li = cowal.iterator();
+		LinkedList<XMLNode> q = null;
+		while(li.hasNext()) {
+			XMLNode node = li.next();
+			if (node.getRoot().equals("iq")) {
+				ListIterator<XMLNode> li_q = node.getSubTags().listIterator();
+				while(li_q.hasNext()) {
+					XMLNode node_q = li_q.next();
+					if (node_q.getRoot().equals("query") && node_q.getAttribute("xmlns").equals("jabber:iq:roster")) {
+						ListIterator<XMLNode> items = node_q.getSubTags().listIterator();
+						q = new LinkedList<XMLNode>();
+						while(items.hasNext()) q.add(items.next()); 
+						c.getNotProcessedEvents().remove(node);
+					}
+				}
 			}
 		}
-		if (String.valueOf(ch).indexOf("</iq>", j) == -1) {
-			c.getLock().unlock();
-			return q;
-		}
-		if (String.valueOf(ch).indexOf("<item ", j) == -1) {
-			rosterGot = true;
-			c.getLock().unlock();
-			return q;
-		}
-		// There are items...
-		populateRoster("jid=", '\'', '\"', ch, q, 0);
-		populateRoster("name=", '\'', '\"', ch, q, 1);
-		populateRoster("<group", '<', '<', ch, q, 2);
-		populateRoster("subscription=", '\'', '\"', ch, q, 3);
-		rosterGot = true;
 		c.getLock().unlock();
 		return q;
 	}
 	
-	private void populateRoster(String string, char d1, char d2, char[] ch, LinkedList<String>[] q, int index) {
-		StringBuilder sb = new StringBuilder();
-		int i = j;
-		int previous = i;
-		while ((i = String.valueOf(ch).indexOf(string, i)) != -1) {
-			i = i + string.length() + 1;
-			previous = i;
-			while((ch[i] != d1) && (ch[i] != d2)) {
-				sb.append(ch[i]);
-				i++;
-			}
-			if (previous == i) q[index].add(null);
-			else q[index].add(sb.toString());
-		}
-		if (previous == i) q[index].add(null);
-	}
-	
-	public LinkedList<String>[] getRoster() {
+	public LinkedList<XMLNode> getRoster() {
 		return roster;
 	}
 }

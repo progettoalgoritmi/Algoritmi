@@ -1,9 +1,7 @@
 package flyingSquirrel3;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
@@ -12,20 +10,15 @@ import java.net.UnknownHostException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.util.EmptyStackException;
+import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.ListIterator;
 import java.util.Stack;
 
 import javax.net.ssl.SSLSocket;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.XMLStreamException;
 
-import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-
-import FlyingSquirrel.Base64;
 
 public class Connection {
 	public static final int DIGESTMD5 = 0, PLAIN = 1;
@@ -81,6 +74,7 @@ public class Connection {
 		switch (auth_type) {
 			case 0: 
 					auth = auth + "DIGEST-MD5'/>";
+					
 					if (withTLS) {
 						startTLS();
 						send(handshake);
@@ -219,7 +213,7 @@ public class Connection {
 		lock.unlock();
 	}
 	
-	private String takeChallenge() throws InterruptedException {
+	private String takeChallenge() throws InterruptedException, IOException {
 		while(lock.getLockStatus());
 		lock.lock();
 		Stack<XMLNode> toBeProcessed = getNotProcessedEvents();
@@ -227,6 +221,14 @@ public class Connection {
 			String challenge = toBeProcessed.pop().getContent();
 			lock.unlock();
 			return challenge;
+		}
+		if (!toBeProcessed.isEmpty() && toBeProcessed.peek().getRoot().equals("failure")) {
+			Stack<XMLNode> failure = toBeProcessed.pop().getSubTags();
+			String cause = "";
+			if (failure != null)
+				if (failure.peek() != null) cause = failure.pop().getRoot();
+			closeConnection();
+			throw new RuntimeException("Authentication failure. Cause: " + (cause.equals("") ? "unknown." : cause + "."));
 		}
 		lock.unlock();
 		return null;
@@ -266,15 +268,26 @@ public class Connection {
 		LinkedList<String>[] llr = iq.rosterRequest();
 		for (int i = 0; i < llr.length; i++) System.err.println(llr[i]);*/
 		p.setStatus(Presence.DONOTDISTURB, "Trying to get things work.");
+		LinkedList<XMLNode> roster = iq.rosterRequest();
+		System.out.println(roster);
 		while(true) {
-			msg.getMessagesThroughStack();
+			msg.getMessages();
+			p.getPresences();
+			if (p.presencesHasChanged()) System.out.println(p.getLastPresences());
 			if (msg.getLastMessages().equals(new LinkedList<String>())) continue;
-			else System.out.println(msg.getLastMessages());
-			if (msg.getLastMessages().contains("exit")) break;
+			else System.out.println(msg.getLastMessages().getFirst());
+			Iterator<MessageBox> it = msg.getLastMessages().iterator();
+			boolean exit = false;
+			while (it.hasNext()) {
+				if (it.next().getMessage().equals("exit")) exit = true;
+				break;
+			}
+			if (exit) break;
 			msg.clearLastMessages();
 		}
 		iq.getUserInfo("antonio");
 		c.closeConnection();
+		/* Implementare thread controlla presenze e ricezione trilli in MessageBox con booleana buzz. Fondere sendBuzz e sendMessage. */
 	}
 	
 }

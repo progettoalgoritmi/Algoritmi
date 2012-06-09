@@ -10,7 +10,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class Message {
 	
-	private LinkedList<String> lastMessages = new LinkedList<String>();
+	private LinkedList<MessageBox> lastMessages = new LinkedList<MessageBox>();
 	private Connection c;
 	
 	public Message(Connection c) {
@@ -18,6 +18,28 @@ public class Message {
 	}
 	
 	public void sendMessage(String destination, String message) throws InterruptedException {
+		/*XMLNode message_node = new XMLNode("message");
+		message_node.addAttribute("id", "none");
+		message_node.addAttribute("type", "chat");
+		message_node.addAttribute("to", destination + "@" + c.getHostname());
+		message_node.addAttribute("from", c.getUsername() + "@" + c.getHostname() + c.getResource());
+		message_node.addAttribute("xmlns", "jabber:client");
+		XMLNode active = new XMLNode("active");
+		active.addAttribute("xmlns", "http://jabber.org/protocol/chatstates");
+		message_node.pushSubtag(active);
+		XMLNode body = new XMLNode("body");
+		body.addContent(message);
+		message_node.pushSubtag(body);
+		XMLNode html = new XMLNode("html");
+		html.addAttribute("xmlns", "http://jabber.org/protocol/xhtml-im");
+		XMLNode html_body = new XMLNode("body");
+		html_body.addAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+		XMLNode p_content = new XMLNode("p");
+		p_content.addContent(message);
+		html_body.pushSubtag(p_content);
+		html.pushSubtag(html_body);
+		message_node.pushSubtag(html);
+		String message_request = message_node.toString();*/
 		String message_request = "<message id='none' type='chat' to='" + destination + "@" + 
 				c.getHostname() + "' from='" + c.getUsername() + "@" + c.getHostname() + c.getResource() +
 				"' xmlns='jabber:client'><active xmlns='http://jabber.org/protocol/chatstates'/>" +
@@ -34,10 +56,10 @@ public class Message {
 		c.send(message_request);
 	}
 	
-	public LinkedList<String> getMessagesThroughStack() throws InterruptedException {
+	public LinkedList<MessageBox> getMessages() throws InterruptedException {
 		while(c.getLock().getLockStatus());
 		c.getLock().lock();
-		LinkedList<String> q = new LinkedList<String>();
+		LinkedList<MessageBox> q = new LinkedList<MessageBox>();
 		CopyOnWriteArrayList<XMLNode> cowal = new CopyOnWriteArrayList<XMLNode>(c.getNotProcessedEvents());
 		Iterator<XMLNode> li = cowal.iterator();
 		while(li.hasNext()) {
@@ -47,8 +69,7 @@ public class Message {
 				while(li_m.hasNext()) {
 					XMLNode node_m = li_m.next();
 					if (node_m.getRoot().equals("body")) {
-						q.add(node.getAttribute("from"));
-						q.add(node_m.getContent());
+						q.add(new MessageBox(node.getAttribute("from"), node_m.getContent()));
 						lastMessages = q;
 						c.getNotProcessedEvents().remove(node);
 					}
@@ -59,46 +80,8 @@ public class Message {
 		return q;
 	}
 	
-	public LinkedList<String> getMessages() {
-		while(c.getLock().getLockStatus());
-		c.getLock().lock();
-		LinkedList<String> q = new LinkedList<String>();
-		char[] ch = c.getBuffer();
-		int i;
-		while ((i = String.valueOf(ch).indexOf("<message")) != -1) {
-			StringBuilder sb_from = new StringBuilder();
-			StringBuilder sb_message = new StringBuilder();
-			int begin = i;
-			int j = String.valueOf(ch).indexOf("from=", i);
-			int k = String.valueOf(ch).indexOf("<body>", i);
-			if ((j > -1) && (k > -1)) {
-				i = j + "from='".length();
-				while ((i < ch.length) && (ch[i] != '\"') && (ch[i] != '\'')) {
-					sb_from.append(ch[i]);
-					i++;
-				}
-				if (i >= ch.length) break;
-				i = k + "<body>".length();
-				while ((i < ch.length) && (ch[i] != '<')) {
-					sb_message.append(ch[i]);
-					i++;
-				}
-				if (i >= ch.length) break;
-				int end = i + "/body>".length();
-				q.add(sb_from.toString());
-				q.add(sb_message.toString());
-				lastMessages = q;
-				c.safeClearBuffer(begin, end);
-				ch = c.getBuffer();
-			}
-			else break;
-		}
-		c.getLock().unlock();
-		return q;
-	}
-	
-	public LinkedList<String> getLastMessages() {
-		return new LinkedList<String>(lastMessages);
+	public LinkedList<MessageBox> getLastMessages() {
+		return new LinkedList<MessageBox>(lastMessages);
 	}
 	
 	public void clearLastMessages() {

@@ -2,33 +2,56 @@ package ExplosiveSheep;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import java.net.SocketTimeoutException;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
 
 public class StreamReaderThread extends Thread {
 
 	private BufferedReader in = null;
-	private ArrayList<Character> buffer = null;
-	private int hash;
-	private Window console;
+	private char[] buffer;
 	private boolean end;
 	private Lock lock;
+	private int original_buffer_size;
+	private int counter;
+	private boolean timeout;
+	private Stack<XMLNode> stack;
+	private Stack<XMLNode> toBeProcessed;
+	private Window window;
+	private int hashcode;
 
-	public StreamReaderThread(BufferedReader in, ArrayList<Character> buffer,int hashCode,Window console,Lock lock) {
+	public StreamReaderThread(BufferedReader in, char[] buffer, int hashcode, Window window, Lock lock) {
 		this.in = in;
 		this.buffer = buffer;
 		this.end = false;
-		hash=hashCode;
-		this.console=console;
-		this.lock=lock;
+		this.lock = lock;
+		this.original_buffer_size = buffer.length;
+		this.counter = 0;
+		this.timeout = false;
+		this.stack = new Stack<XMLNode>();
+		this.toBeProcessed = new Stack<XMLNode>();
+		this.window = window;
+		this.hashcode = hashcode;
 	}
 	
+	public int getCounter() {
+		return counter;
+	}
 	
 	public boolean isEnded() {
 		return this.end;
 	}
 	
-	public ArrayList<Character> getBuffer() {
+	public char[] getBuffer() {
 		return this.buffer;
 	}
 	
@@ -36,48 +59,79 @@ public class StreamReaderThread extends Thread {
 		this.end = true;
 	}
 	
-	public void clearBuffer() {
-		try {
-			lock.waitOnLocks(100);
-		} catch (InterruptedException e) {}
-		lock.hardLock();
-		int i;
-		for(i=0;(i<buffer.size())&&(!buffer.get(i).equals('>'));i++);
-		if((i<buffer.size())&&(buffer.get(i).equals('>'))){
-			List<Character> buffTemp= buffer.subList(i, buffer.size());
-			buffer.clear();
-			buffer.addAll(buffTemp);
-		}
-		lock.hardUnlock();
+	protected void clearBuffer() {
+		buffer = new char[original_buffer_size];
+		counter = 0;
+	}
+	
+	public void safeClearBuffer(int begin, int end) {
+		while(lock.getLockStatus());
+		lock.lock();
+		char[] temp = new char[buffer.length - (end - begin)];
+		System.arraycopy(buffer, 0, temp, 0, begin);
+		System.arraycopy(buffer, end + 1, temp, begin, temp.length - begin - 1);
+		buffer = temp;
+		counter = temp.length - 1;
+		lock.unlock();
+	}
+	
+	public int getBufferSize() {
+		return buffer.length;
+	}
+	
+	public boolean getTimeout() {
+		return timeout;
+	}
+	
+	public Stack<XMLNode> getNotProcessedEvents() {
+		return toBeProcessed;
+	}
+	
+	public Stack<XMLNode> getIncompleteEvents() {
+		return stack;
 	}
 	
 	@Override
 	public void run() {
 		boolean newLine = true;
-		while(!lock.getTerminationSignal()) {
+		while(true) {
 			char buff;
 			try {
-				while(lock.getSoftLockStatus());
-				lock.softLock();
-				while(lock.getHardLockStatus());
+				while(lock.getLockStatus());
+				lock.lock();
 				buff = (char) in.read();
-				lock.softUnlock();
-				buffer.add(buff);
+				timeout = false;
+				lock.unlock();
+				if (counter >= buffer.length) {
+					char[] temp = new char[buffer.length*2];
+					System.arraycopy(buffer, 0, temp, 0, buffer.length);
+					buffer = temp;
+				}
+				buffer[counter] = buff;
+				counter++;
 				if (buff == 65535) break;
 				else if (buff != '>') {
 					if (newLine) {
-						console.print("Client "+hash+": ");
+						window.print("Client " + hashcode + ": ");
 						newLine = false;
 					}
-					console.print(buff);
+					window.print(buff);
 				}
 				else {
-					console.println(buff);
-					//if (TLSHandler.gotTLS(buffer)) break;
+					window.println(buff);
+					while(lock.getLockStatus());
+					lock.lock();
+					Parser p = new Parser(buffer, stack, toBeProcessed);
+					p.parse();
+					lock.unlock();
+					clearBuffer();
 					newLine = true;
 				}
-			} catch (IOException e) {} 
-			catch (Exception e) {}
+			} catch (SocketTimeoutException e) {
+				lock.unlock();
+				timeout = true;
+				continue; } 
+			catch (IOException e) {}
 		}
 	}
 }

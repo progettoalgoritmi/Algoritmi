@@ -4,8 +4,6 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-import FlyingSquirrel.Base64;
-
 public class MD5Handler {
 	
 	public static String calculateResponse(int auth_type, String challenge, 
